@@ -3,182 +3,198 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Taikeron — écosystème vélo offline-first : Taikeron Lab sur Windows et Taikeron App sur Android.">
-  <meta name="theme-color" content="#07080a">
+  <meta name="description" content="Taikeron — écosystème vélo offline-first. Taikeron Lab sur Windows et Taikeron App sur Android.">
+  <meta name="theme-color" content="#07090b">
   <title>Taikeron — Cycling OS</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="ambient ambient-a"></div>
-  <div class="ambient ambient-b"></div>
-
-  <header class="site-header">
+  <header class="topbar">
     <a class="brand" href="#top" aria-label="Taikeron — accueil">
-      <svg class="brand-symbol" viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M8 10h32L29 21v17H19V21L8 10Z"/>
-        <path d="M16 15h16l-8 8-8-8Z" class="brand-cut"/>
+      <svg class="brand-symbol" viewBox="0 0 48 36" aria-hidden="true">
+        <path d="M4 5h37l-6 7H24l-8 19H8l8-19H4z" fill="currentColor"/>
+        <path d="M20 17h13l-5 6H17z" fill="currentColor" opacity=".72"/>
       </svg>
-      <span class="brand-name">TAIKERON</span>
+      <span>TAIKERON</span>
     </a>
-    <nav class="main-nav" aria-label="Navigation principale">
-      <a href="#ecosysteme">Écosystème</a>
-      <a href="#tutoriels">Tutoriels</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="active" href="#top">Accueil</a>
+      <a href="#downloads">Téléchargements</a>
+      <a href="#tutorials">Tutoriels</a>
       <a href="#updates">Mises à jour</a>
       <a href="#about">À propos</a>
     </nav>
-    <a class="header-link" href="#ecosysteme">Télécharger</a>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero-shell">
       <div class="hero-copy">
-        <div class="hero-kicker"><span></span> CYCLING OS · OFFLINE-FIRST</div>
-        <h1>Le vélo,<br><em>sans dépendre</em><br>du réseau.</h1>
-        <p class="hero-text">Taikeron relie le terrain et l’analyse : une application Android pour rouler, un environnement Windows pour préparer, comprendre et progresser.</p>
+        <p class="kicker">Cycling OS · offline-first</p>
+        <h1>TAIKERON</h1>
+        <h2>L’écosystème vélo offline-first</h2>
+        <p>Taikeron réunit <strong>Taikeron App</strong> et <strong>Taikeron Lab</strong> pour enregistrer, préparer, analyser et progresser.</p>
+        <p>Conçu pour continuer à fonctionner localement, même quand Internet ne suit pas.</p>
         <div class="hero-actions">
-          <a id="primaryDownload" class="button button-primary" href="#lab">Découvrir Taikeron Lab</a>
-          <a id="secondaryDownload" class="button button-ghost" href="#app">Découvrir Taikeron App</a>
+          <a id="heroPrimary" class="cta cta-gold" href="#labCard">Télécharger TL</a>
+          <a id="heroSecondary" class="cta cta-dark" href="#appCard">Télécharger TA</a>
         </div>
-        <div class="device-line"><span class="device-dot"></span><span id="deviceHint">Priorité adaptée automatiquement à votre appareil.</span></div>
+        <p id="devicePriority" class="device-priority">Ordinateur détecté : Taikeron Lab est prioritaire.</p>
       </div>
 
-      <div class="hero-art" aria-hidden="true">
-        <div class="wheel wheel-outer"></div>
-        <div class="wheel wheel-inner"></div>
-        <div class="route-line route-one"></div>
-        <div class="route-line route-two"></div>
-        <div class="signal-point p1"></div>
-        <div class="signal-point p2"></div>
-        <div class="signal-point p3"></div>
-        <div class="hero-core">
-          <svg viewBox="0 0 48 48">
-            <path d="M8 10h32L29 21v17H19V21L8 10Z"/>
-            <path d="M16 15h16l-8 8-8-8Z" class="brand-cut"/>
-          </svg>
+      <div class="hero-ride" aria-hidden="true">
+        <svg class="ride-art" viewBox="0 0 820 560" role="img">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#171b20"/><stop offset="1" stop-color="#080a0c"/></linearGradient>
+            <linearGradient id="road" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#262b30"/><stop offset="1" stop-color="#090b0d"/></linearGradient>
+            <radialGradient id="halo"><stop stop-color="#c99d45" stop-opacity=".18"/><stop offset="1" stop-color="#c99d45" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="820" height="560" fill="url(#sky)"/>
+          <circle cx="548" cy="155" r="210" fill="url(#halo)"/>
+          <path d="M0 268L85 190l72 34 108-137 75 107 82-79 73 86 105-134 92 137 128-79v250H0z" fill="#11151a"/>
+          <path d="M0 315l117-72 98 28 110-87 94 85 91-74 118 94 112-64 80 33v150H0z" fill="#0d1014" opacity=".95"/>
+          <path d="M72 560c135-125 251-153 367-154 129-1 237-58 381-164v318H72z" fill="url(#road)"/>
+          <path d="M99 560c129-102 230-126 346-130 131-4 244-68 375-159" fill="none" stroke="#a7adb2" stroke-opacity=".26" stroke-width="3"/>
+          <path d="M104 560c128-88 230-108 346-114 138-8 251-70 370-149" fill="none" stroke="#c99d45" stroke-opacity=".24" stroke-width="2" stroke-dasharray="14 17"/>
+          <g transform="translate(392 151) rotate(-7)">
+            <circle cx="76" cy="263" r="58" fill="none" stroke="#090a0c" stroke-width="12"/>
+            <circle cx="235" cy="263" r="58" fill="none" stroke="#090a0c" stroke-width="12"/>
+            <path d="M76 263l61-103 98 103-74-13-85 13zm61-103l38 7 39 69m-77-76-22-57 35-19 45 24" fill="none" stroke="#08090b" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="139" cy="73" r="25" fill="#090a0c"/>
+            <path d="M142 96c-2 37 14 62 34 88l37-10-24-76-47-2zm20 78-40 52m68-53 37 48m-77-118-47 40" fill="none" stroke="#08090b" stroke-width="20" stroke-linecap="round"/>
+            <path d="M126 57c13-15 34-15 49-2" fill="none" stroke="#c99d45" stroke-opacity=".55" stroke-width="4"/>
+          </g>
+          <path d="M0 438c105-35 208-46 318-39" fill="none" stroke="#ffffff" stroke-opacity=".035" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <aside class="hero-analytics" aria-label="Exemple de données cyclistes">
+        <div class="analytics-top">
+          <div class="chart-wrap">
+            <svg class="hero-chart" viewBox="0 0 560 210" aria-hidden="true">
+              <g stroke="#ffffff" stroke-opacity=".07" stroke-width="1">
+                <path d="M0 35H560M0 75H560M0 115H560M0 155H560M70 0V190M140 0V190M210 0V190M280 0V190M350 0V190M420 0V190M490 0V190"/>
+              </g>
+              <path class="chart-area" d="M0 153L34 145 61 122 90 129 118 92 150 118 179 111 210 151 242 132 275 82 305 68 332 101 365 76 395 50 421 59 452 35 477 83 505 101 530 132 560 143V190H0Z"/>
+              <path class="chart-line" d="M0 153L34 145 61 122 90 129 118 92 150 118 179 111 210 151 242 132 275 82 305 68 332 101 365 76 395 50 421 59 452 35 477 83 505 101 530 132 560 143"/>
+              <g fill="#a8adb3" font-size="12"><text x="0" y="207">0</text><text x="87" y="207">25</text><text x="180" y="207">50</text><text x="274" y="207">75</text><text x="366" y="207">100</text><text x="451" y="207">125</text><text x="520" y="207">150 km</text></g>
+            </svg>
+          </div>
+          <div class="live-metrics">
+            <div class="power-ring"><span>248</span><small>W</small></div>
+            <div><strong>78</strong><small>RPM</small></div>
+            <div><strong>142</strong><small>BPM</small></div>
+          </div>
         </div>
-        <div class="art-caption">LOCAL DATA · ROUTE · ANALYSIS · RIDE</div>
-      </div>
-    </section>
-
-    <section class="manifesto">
-      <p>Pas un cloud obligatoire.</p>
-      <p>Pas une app qui devient inutile hors réseau.</p>
-      <strong>Un écosystème qui reste à vous.</strong>
-    </section>
-
-    <section id="ecosysteme" class="section ecosystem-section">
-      <div class="section-title-row">
-        <div>
-          <span class="section-index">01</span>
-          <p class="eyebrow">Écosystème</p>
+        <div class="ride-stats">
+          <div><svg viewBox="0 0 32 32"><path d="M5 23c4-8 7-8 11-2s7 6 11-4M6 8a4 4 0 1 0 0 .1M26 7a4 4 0 1 0 0 .1"/></svg><strong>132,4 km</strong><span>Distance</span></div>
+          <div><svg viewBox="0 0 32 32"><path d="M3 24l8-13 5 8 4-5 9 10z"/></svg><strong>2 438 m</strong><span>Dénivelé +</span></div>
+          <div><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 9v8l5 3"/></svg><strong>4 h 37</strong><span>Durée</span></div>
+          <div><svg viewBox="0 0 32 32"><path d="M6 24a12 12 0 0 1 20 0M16 19l7-8"/></svg><strong>28,6 km/h</strong><span>Vitesse moy.</span></div>
         </div>
-        <h2>Deux outils principaux.<br>Un seul parcours cycliste.</h2>
-      </div>
+      </aside>
+    </section>
 
-      <div id="productStack" class="product-stack">
-        <article id="lab" class="product-band" data-product="desktop">
-          <div class="product-code">01 / WINDOWS</div>
-          <div class="product-main">
-            <div class="product-name-line"><span class="product-monogram">TL</span><h3>Taikeron Lab</h3></div>
-            <p>Le centre de contrôle de l’écosystème : préparation, analyse, physiologie, matériel, cartes et transferts.</p>
+    <section id="downloads" class="products-section">
+      <div id="productGrid" class="products-grid">
+        <article id="labCard" class="product-card" data-product="desktop">
+          <div class="app-logo logo-tl" aria-label="Logo Taikeron Lab">
+            <svg viewBox="0 0 150 150" aria-hidden="true">
+              <rect x="3" y="3" width="144" height="144" rx="28" fill="#111315" stroke="#5e5134" stroke-width="2"/>
+              <path d="M23 99a54 54 0 1 1 101 2" fill="none" stroke="#d7c8a8" stroke-width="5" opacity=".92"/>
+              <path d="M78 26a54 54 0 0 1 47 38" fill="none" stroke="#c99d45" stroke-width="3" stroke-dasharray="4 7"/>
+              <path d="M28 37h54l-8 13H60l-18 61H27l18-61H28z" fill="#c99d45"/>
+              <path d="M69 48h15v50h32v14H69z" fill="#d0d0cc"/>
+              <path d="M94 88l24-22" stroke="#c99d45" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="118" cy="65" r="7" fill="#111315" stroke="#c99d45" stroke-width="4"/>
+              <rect x="91" y="116" width="10" height="13" fill="#777"/><rect x="106" y="110" width="10" height="19" fill="#c99d45"/><rect x="121" y="103" width="10" height="26" fill="#686a6c"/>
+            </svg>
           </div>
-          <div class="product-points">
-            <span>Planifier</span><span>Analyser</span><span>Comprendre</span>
+          <div class="product-copy">
+            <span class="platform">Logiciel bureau Windows</span>
+            <h3>Taikeron Lab</h3>
+            <p>Analysez vos sorties en détail, planifiez vos itinéraires, suivez votre progression et pilotez l’écosystème depuis votre ordinateur.</p>
           </div>
-          <button class="download-link" type="button" disabled>Télécharger TL <small>bientôt</small></button>
+          <button class="download-btn dark" type="button" data-release="lab">Télécharger TL</button>
         </article>
 
-        <article id="app" class="product-band" data-product="mobile">
-          <div class="product-code">02 / ANDROID</div>
-          <div class="product-main">
-            <div class="product-name-line"><span class="product-monogram">TA</span><h3>Taikeron App</h3></div>
-            <p>Le compagnon de terrain : enregistrement, navigation locale, suivi de séance et continuité avec Taikeron Lab.</p>
+        <article id="appCard" class="product-card" data-product="mobile">
+          <div class="app-logo logo-ta" aria-label="Logo Taikeron App">
+            <svg viewBox="0 0 150 150" aria-hidden="true">
+              <rect x="3" y="3" width="144" height="144" rx="28" fill="#111315" stroke="#5e5134" stroke-width="2"/>
+              <g stroke="#383c3f" stroke-width="1" opacity=".7"><path d="M26 38H124M26 58H124M26 78H124M26 98H124M26 118H124M46 25V126M66 25V126M86 25V126M106 25V126"/></g>
+              <path d="M24 34c18-16 30 5 45-7s23-10 36 0 19 4 25-4" fill="none" stroke="#bdb9ae" stroke-width="3" stroke-dasharray="6 7"/>
+              <circle cx="25" cy="34" r="5" fill="#111315" stroke="#c99d45" stroke-width="3"/><circle cx="105" cy="27" r="5" fill="#111315" stroke="#c99d45" stroke-width="3"/>
+              <path d="M24 48h59l-9 14H58l-21 61H22l21-61H24z" fill="#c99d45"/>
+              <path d="M87 48l39 75h-17l-8-17H78l-8 17H53l39-75h15l-18 43h25l-18-43z" fill="#d0d0cc"/>
+              <path d="M24 126c20-5 32-10 47-4s31-1 48-17" fill="none" stroke="#c99d45" stroke-width="2" opacity=".85"/>
+              <path d="M99 23a50 50 0 0 1 31 39" fill="none" stroke="#c99d45" stroke-width="2" stroke-dasharray="4 5"/>
+            </svg>
           </div>
-          <div class="product-points">
-            <span>Rouler</span><span>Naviguer</span><span>Transférer</span>
+          <div class="product-copy">
+            <span class="platform">Application mobile Android</span>
+            <h3>Taikeron App</h3>
+            <p>Enregistrez vos sorties, suivez votre séance, explorez vos parcours et gardez l’essentiel disponible même sans connexion.</p>
           </div>
-          <button class="download-link" type="button" disabled>Télécharger TA <small>bientôt</small></button>
+          <button class="download-btn gold" type="button" data-release="app">Télécharger TA</button>
         </article>
       </div>
     </section>
 
-    <section class="section values-section">
-      <div class="section-title-row compact">
-        <div><span class="section-index">02</span><p class="eyebrow">Esprit Taikeron</p></div>
-        <h2>Conçu autour de la contrainte,<br>pas autour du cloud.</h2>
-      </div>
-      <div class="values-line">
-        <article><b>LOCAL</b><p>Les fonctions essentielles restent utilisables sans connexion permanente.</p></article>
-        <article><b>MODULAIRE</b><p>Chaque application a un rôle clair au lieu d’empiler toutes les fonctions au même endroit.</p></article>
-        <article><b>EXPLICABLE</b><p>Les données, calculs et décisions restent lisibles et maîtrisables.</p></article>
-      </div>
+    <section class="lower-grid">
+      <section id="tutorials" class="panel tutorials-panel">
+        <div class="panel-title"><span class="title-icon">▶</span><h2>Tutoriels vidéo</h2><span class="coming">Les vidéos YouTube seront intégrées ici</span></div>
+        <div class="tutorial-list">
+          <article class="tutorial-cover">
+            <div class="cover-art cover-cycling"><span class="mini-logo ta-mini">TA</span><span class="play">▶</span></div>
+            <h3>Prendre en main Taikeron App</h3>
+          </article>
+          <article class="tutorial-cover">
+            <div class="cover-art cover-chart"><span class="mini-logo tl-mini">TL</span><svg viewBox="0 0 200 70"><path d="M0 53l25-6 20-21 22 10 22-23 21 19 20-8 20 21 20-12 30-17"/></svg><span class="play">▶</span></div>
+            <h3>Analyser une sortie dans Taikeron Lab</h3>
+          </article>
+          <article class="tutorial-cover">
+            <div class="cover-art cover-transfer"><span class="mini-logo ta-mini">TA</span><span class="transfer-arrow">→</span><span class="mini-logo tl-mini">TL</span><span class="play">▶</span></div>
+            <h3>Transférer entre Taikeron App et Taikeron Lab</h3>
+          </article>
+        </div>
+      </section>
+
+      <section id="updates" class="panel updates-panel">
+        <div class="panel-title"><span class="title-icon">↻</span><h2>Dernières mises à jour</h2></div>
+        <article class="release-row">
+          <span class="release-monogram">TL</span>
+          <div><strong>Taikeron Lab</strong><span class="release-status">En préparation</span><p>La prochaine fiche de version apparaîtra ici lors d’une vraie publication.</p></div>
+        </article>
+        <article class="release-row">
+          <span class="release-monogram gold-mono">TA</span>
+          <div><strong>Taikeron App</strong><span class="release-status">En préparation</span><p>Les micro-corrections restent regroupées jusqu’à une mise à jour suffisamment importante.</p></div>
+        </article>
+      </section>
     </section>
 
-    <section id="tutoriels" class="section tutorials-section">
-      <div class="section-title-row compact">
-        <div><span class="section-index">03</span><p class="eyebrow">Tutoriels</p></div>
-        <h2>Voir. Comprendre. Utiliser.</h2>
+    <section id="about" class="trust-strip">
+      <div class="footer-brand"><svg class="brand-symbol" viewBox="0 0 48 36"><path d="M4 5h37l-6 7H24l-8 19H8l8-19H4z" fill="currentColor"/><path d="M20 17h13l-5 6H17z" fill="currentColor" opacity=".72"/></svg><div><strong>TAIKERON</strong><span>Conçu pour le vélo. Pensé pour le contrôle local.</span></div></div>
+      <div class="trust-item"><span class="trust-icon">◇</span><p><strong>Vos données</strong><br>vous appartiennent</p></div>
+      <div class="trust-item"><span class="trust-icon">▣</span><p><strong>Offline-first</strong><br>par conception</p></div>
+      <div class="trust-item"><span class="trust-icon">⊞</span><p><strong>Optimisé pour</strong><br>Windows et Android</p></div>
+      <div class="developer-zone">
+        <span class="dev-label">&lt;/&gt; Espace développeur</span>
+        <div class="dev-content">
+          <div class="tmb-logo" aria-label="Logo Taikeron Map Builder">
+            <svg viewBox="0 0 90 90"><rect x="2" y="2" width="86" height="86" rx="18" fill="#111315" stroke="#5e5134"/><path d="M12 18h66M12 35h66M12 52h66M12 69h66M28 11v68M45 11v68M62 11v68" stroke="#32363a"/><path d="M11 22h48l-7 10H41L29 73H17l12-41H11z" fill="#c99d45"/><path d="M30 42l12 29h8l6-14 6 14h10l9-29H69l-4 17-6-15h-6l-7 15-5-17z" fill="#d0d0cc"/><path d="M13 69c12-8 18-14 26-6s15 8 27-7" fill="none" stroke="#c99d45" stroke-width="2"/><path d="M58 18l7-5 7 5" fill="none" stroke="#d0d0cc" stroke-width="2"/></svg>
+          </div>
+          <div><strong>Taikeron Map Builder</strong><span>outil avancé / développeur</span><a href="mailto:taikeron.cyclingos@gmail.com?subject=Taikeron%20Map%20Builder">Documentation et configuration →</a></div>
+        </div>
       </div>
-      <p class="section-intro">Les tutoriels YouTube seront intégrés directement ici. Aucun faux écran d’application : uniquement les vraies vidéos lorsqu’elles seront publiées.</p>
-      <div class="tutorial-list">
-        <article class="tutorial-row">
-          <div class="tutorial-number">01</div>
-          <div class="tutorial-play">▶</div>
-          <div><span>Taikeron App</span><h3>Prendre en main Taikeron App</h3></div>
-          <p>Installation, configuration et première sortie.</p>
-        </article>
-        <article class="tutorial-row">
-          <div class="tutorial-number">02</div>
-          <div class="tutorial-play">▶</div>
-          <div><span>Taikeron Lab</span><h3>Analyser une sortie dans Taikeron Lab</h3></div>
-          <p>Import, lecture et analyse des données.</p>
-        </article>
-        <article class="tutorial-row">
-          <div class="tutorial-number">03</div>
-          <div class="tutorial-play">▶</div>
-          <div><span>Écosystème</span><h3>Transférer entre Taikeron App et Taikeron Lab</h3></div>
-          <p>Connexion locale, cartes et parcours.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="updates" class="section updates-section">
-      <div class="section-title-row compact">
-        <div><span class="section-index">04</span><p class="eyebrow">Mises à jour</p></div>
-        <h2>Publier quand ça mérite<br>une vraie version.</h2>
-      </div>
-      <div class="release-board">
-        <div class="release-head"><span>PRODUIT</span><span>STATUT</span><span>DERNIÈRE VERSION</span></div>
-        <div class="release-row"><strong>Taikeron Lab</strong><span class="release-status"><i></i> En préparation</span><span>Publication à venir</span></div>
-        <div class="release-row"><strong>Taikeron App</strong><span class="release-status"><i></i> En préparation</span><span>Publication à venir</span></div>
-      </div>
-      <p class="release-note">Les petites modifications s’accumulent en développement. Une mise à jour publique n’est publiée que lorsqu’un ensemble cohérent de changements le justifie.</p>
-    </section>
-
-    <section id="about" class="section support-section">
-      <div class="support-line"></div>
-      <div class="support-copy">
-        <p class="eyebrow">Support</p>
-        <h2>Quelque chose ne tourne pas rond ?</h2>
-        <p>Un rapport clair suffit. Aucun envoi automatique de données sportives n’est nécessaire.</p>
-      </div>
-      <a class="button button-primary" href="mailto:taikeron.cyclingos@gmail.com?subject=Rapport%20de%20bug%20Taikeron">Rapporter un bug</a>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-left">
-      <svg class="brand-symbol footer-symbol" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32L29 21v17H19V21L8 10Z"/><path d="M16 15h16l-8 8-8-8Z" class="brand-cut"/></svg>
-      <div><strong>TAIKERON</strong><span>CYCLING OS</span></div>
-    </div>
-    <div class="footer-center"><a href="mailto:taikeron.cyclingos@gmail.com">Contact</a><a href="#updates">Mises à jour</a></div>
-    <details class="developer-zone">
-      <summary>Espace développeur</summary>
-      <div class="developer-panel"><strong>Taikeron Map Builder</strong><span>OUTIL AVANCÉ / DÉVELOPPEUR</span><p>Création et contrôle de cartes Taikeron. Des comptes ou clés externes peuvent être nécessaires.</p></div>
-    </details>
-    <div class="footer-year">© <span id="year"></span></div>
+  <footer class="legal-footer">
+    <span>© <span id="year"></span> Taikeron-CyclingOS</span>
+    <a href="mailto:taikeron.cyclingos@gmail.com?subject=Rapport%20de%20bug%20Taikeron">Rapporter un bug</a>
   </footer>
 
+  <div id="releaseToast" class="toast" role="status" aria-live="polite">Les téléchargements publics seront activés dès qu’une release officielle sera publiée.</div>
   <script src="script.js"></script>
 </body>
 </html>
