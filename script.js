@@ -111,11 +111,12 @@
   const hydrateBase64Images = async () => {
     const nodes = [...document.querySelectorAll('img[data-b64-file]')];
     const cache = new Map();
+    const version = '20260806-2';
     await Promise.all(nodes.map(async img => {
       const file = img.dataset.b64File;
       try {
         if (!cache.has(file)) {
-          const text = await fetch(file, {cache:'force-cache'}).then(r => {
+          const text = await fetch(`${file}?v=${version}`, {cache:'no-store'}).then(r => {
             if (!r.ok) throw new Error(`HTTP ${r.status}`);
             return r.text();
           });
