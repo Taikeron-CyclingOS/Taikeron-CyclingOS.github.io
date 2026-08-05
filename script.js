@@ -1,37 +1,64 @@
 (() => {
-  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia('(max-width: 760px)').matches;
+  const mobileByUA = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  const mobileByWidth = window.matchMedia('(max-width: 820px)').matches;
+  const isMobile = mobileByUA || mobileByWidth;
 
-  const lab = document.getElementById('lab');
-  const app = document.getElementById('app');
-  const stack = document.getElementById('productStack');
-  const primary = document.getElementById('primaryDownload');
-  const secondary = document.getElementById('secondaryDownload');
-  const hint = document.getElementById('deviceHint');
+  const grid = document.getElementById('productGrid');
+  const lab = document.getElementById('labCard');
+  const app = document.getElementById('appCard');
+  const primary = document.getElementById('heroPrimary');
+  const secondary = document.getElementById('heroSecondary');
+  const priorityText = document.getElementById('devicePriority');
 
   if (isMobile) {
-    app?.classList.add('is-priority');
-    if (stack && app) stack.prepend(app);
+    if (grid && app) grid.prepend(app);
+    app?.classList.add('priority');
+    lab?.classList.remove('priority');
     if (primary) {
-      primary.textContent = 'Découvrir Taikeron App';
-      primary.href = '#app';
+      primary.textContent = 'Télécharger TA';
+      primary.href = '#appCard';
     }
     if (secondary) {
-      secondary.textContent = 'Découvrir Taikeron Lab';
-      secondary.href = '#lab';
+      secondary.textContent = 'Télécharger TL';
+      secondary.href = '#labCard';
     }
-    if (hint) hint.textContent = 'Mobile détecté · Taikeron App mise en avant';
+    if (priorityText) priorityText.textContent = 'Mobile détecté : Taikeron App est prioritaire.';
   } else {
-    lab?.classList.add('is-priority');
+    if (grid && lab) grid.prepend(lab);
+    lab?.classList.add('priority');
+    app?.classList.remove('priority');
     if (primary) {
-      primary.textContent = 'Découvrir Taikeron Lab';
-      primary.href = '#lab';
+      primary.textContent = 'Télécharger TL';
+      primary.href = '#labCard';
     }
     if (secondary) {
-      secondary.textContent = 'Découvrir Taikeron App';
-      secondary.href = '#app';
+      secondary.textContent = 'Télécharger TA';
+      secondary.href = '#appCard';
     }
-    if (hint) hint.textContent = 'Ordinateur détecté · Taikeron Lab mis en avant';
+    if (priorityText) priorityText.textContent = 'Ordinateur détecté : Taikeron Lab est prioritaire.';
   }
+
+  const toast = document.getElementById('releaseToast');
+  const showReleaseMessage = (event) => {
+    event.preventDefault();
+    toast?.classList.add('show');
+    window.clearTimeout(window.__taikeronToastTimer);
+    window.__taikeronToastTimer = window.setTimeout(() => toast?.classList.remove('show'), 3200);
+  };
+
+  document.querySelectorAll('.download-btn').forEach((button) => {
+    button.addEventListener('click', showReleaseMessage);
+  });
+
+  [primary, secondary].forEach((link) => {
+    link?.addEventListener('click', (event) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
 
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
