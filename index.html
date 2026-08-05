@@ -4,15 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Taikeron — écosystème vélo offline-first : Taikeron Lab sur Windows et Taikeron App sur Android.">
-  <meta name="theme-color" content="#0a0b0d">
+  <meta name="theme-color" content="#07080a">
   <title>Taikeron — Cycling OS</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Taikeron — accueil">
-      <span class="brand-mark" aria-hidden="true">T</span>
-      <span>TAIKERON</span>
+      <svg class="brand-symbol" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M8 10h32L29 21v17H19V21L8 10Z"/>
+        <path d="M16 15h16l-8 8-8-8Z" class="brand-cut"/>
+      </svg>
+      <span class="brand-name">TAIKERON</span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
       <a href="#ecosysteme">Écosystème</a>
@@ -20,151 +26,157 @@
       <a href="#updates">Mises à jour</a>
       <a href="#about">À propos</a>
     </nav>
+    <a class="header-link" href="#ecosysteme">Télécharger</a>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Cycling OS · offline-first</p>
-        <h1>Rouler dehors.<br>Garder le contrôle dedans.</h1>
-        <p class="hero-text">Taikeron réunit une application mobile pour le vélo et un environnement Windows pour préparer, transférer, analyser et progresser, avec une priorité donnée au fonctionnement local.</p>
+        <div class="hero-kicker"><span></span> CYCLING OS · OFFLINE-FIRST</div>
+        <h1>Le vélo,<br><em>sans dépendre</em><br>du réseau.</h1>
+        <p class="hero-text">Taikeron relie le terrain et l’analyse : une application Android pour rouler, un environnement Windows pour préparer, comprendre et progresser.</p>
         <div class="hero-actions">
-          <a id="primaryDownload" class="button button-primary" href="#ecosysteme">Découvrir Taikeron Lab</a>
-          <a id="secondaryDownload" class="button button-secondary" href="#ecosysteme">Découvrir Taikeron App</a>
+          <a id="primaryDownload" class="button button-primary" href="#lab">Découvrir Taikeron Lab</a>
+          <a id="secondaryDownload" class="button button-ghost" href="#app">Découvrir Taikeron App</a>
         </div>
-        <p id="deviceHint" class="device-hint">Version adaptée automatiquement à votre appareil.</p>
+        <div class="device-line"><span class="device-dot"></span><span id="deviceHint">Priorité adaptée automatiquement à votre appareil.</span></div>
       </div>
-      <div class="hero-signature" aria-label="Signature visuelle Taikeron">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="hero-monogram">T</div>
-        <div class="hero-rule"></div>
-        <p>BLACK · SILVER · GOLD · CREAM</p>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="wheel wheel-outer"></div>
+        <div class="wheel wheel-inner"></div>
+        <div class="route-line route-one"></div>
+        <div class="route-line route-two"></div>
+        <div class="signal-point p1"></div>
+        <div class="signal-point p2"></div>
+        <div class="signal-point p3"></div>
+        <div class="hero-core">
+          <svg viewBox="0 0 48 48">
+            <path d="M8 10h32L29 21v17H19V21L8 10Z"/>
+            <path d="M16 15h16l-8 8-8-8Z" class="brand-cut"/>
+          </svg>
+        </div>
+        <div class="art-caption">LOCAL DATA · ROUTE · ANALYSIS · RIDE</div>
       </div>
     </section>
 
-    <section id="ecosysteme" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Écosystème</p>
-        <h2>Deux applications principales, deux rôles clairs.</h2>
-        <p>Le site met automatiquement en avant l’application la plus logique selon l’appareil utilisé. Les noms complets sont toujours privilégiés pour éviter toute confusion.</p>
+    <section class="manifesto">
+      <p>Pas un cloud obligatoire.</p>
+      <p>Pas une app qui devient inutile hors réseau.</p>
+      <strong>Un écosystème qui reste à vous.</strong>
+    </section>
+
+    <section id="ecosysteme" class="section ecosystem-section">
+      <div class="section-title-row">
+        <div>
+          <span class="section-index">01</span>
+          <p class="eyebrow">Écosystème</p>
+        </div>
+        <h2>Deux outils principaux.<br>Un seul parcours cycliste.</h2>
       </div>
 
-      <div id="productGrid" class="product-grid">
-        <article id="labCard" class="product-card" data-product="desktop">
-          <div class="product-topline">
-            <span class="product-mark">TL</span>
-            <span class="platform-pill">Windows</span>
+      <div id="productStack" class="product-stack">
+        <article id="lab" class="product-band" data-product="desktop">
+          <div class="product-code">01 / WINDOWS</div>
+          <div class="product-main">
+            <div class="product-name-line"><span class="product-monogram">TL</span><h3>Taikeron Lab</h3></div>
+            <p>Le centre de contrôle de l’écosystème : préparation, analyse, physiologie, matériel, cartes et transferts.</p>
           </div>
-          <h3>Taikeron Lab</h3>
-          <p>Le poste de travail de l’écosystème : planification, analyse des sorties, physiologie, gestion du matériel, cartes et transferts avec Taikeron App.</p>
-          <ul>
-            <li>Analyse et planification avancées</li>
-            <li>Fonctionnement local par conception</li>
-            <li>Gestion des cartes et transferts</li>
-          </ul>
-          <button class="button button-primary download-placeholder" type="button" disabled>Télécharger TL — bientôt</button>
-        </article>
-
-        <article id="appCard" class="product-card" data-product="mobile">
-          <div class="product-topline">
-            <span class="product-mark">TA</span>
-            <span class="platform-pill">Android</span>
+          <div class="product-points">
+            <span>Planifier</span><span>Analyser</span><span>Comprendre</span>
           </div>
-          <h3>Taikeron App</h3>
-          <p>L’application à emporter sur le vélo : enregistrement, navigation hors ligne, suivi de séance et lien direct avec Taikeron Lab.</p>
-          <ul>
-            <li>Utilisation mobile et hors ligne</li>
-            <li>Cartes légères adaptées au téléphone</li>
-            <li>Transfert avec Taikeron Lab</li>
-          </ul>
-          <button class="button button-secondary download-placeholder" type="button" disabled>Télécharger TA — bientôt</button>
+          <button class="download-link" type="button" disabled>Télécharger TL <small>bientôt</small></button>
+        </article>
+
+        <article id="app" class="product-band" data-product="mobile">
+          <div class="product-code">02 / ANDROID</div>
+          <div class="product-main">
+            <div class="product-name-line"><span class="product-monogram">TA</span><h3>Taikeron App</h3></div>
+            <p>Le compagnon de terrain : enregistrement, navigation locale, suivi de séance et continuité avec Taikeron Lab.</p>
+          </div>
+          <div class="product-points">
+            <span>Rouler</span><span>Naviguer</span><span>Transférer</span>
+          </div>
+          <button class="download-link" type="button" disabled>Télécharger TA <small>bientôt</small></button>
         </article>
       </div>
     </section>
 
-    <section class="section principles" aria-labelledby="principlesTitle">
-      <div class="section-heading compact">
-        <p class="eyebrow">Esprit Taikeron</p>
-        <h2 id="principlesTitle">Pensé pour rester utile même quand Internet ne l’est pas.</h2>
+    <section class="section values-section">
+      <div class="section-title-row compact">
+        <div><span class="section-index">02</span><p class="eyebrow">Esprit Taikeron</p></div>
+        <h2>Conçu autour de la contrainte,<br>pas autour du cloud.</h2>
       </div>
-      <div class="principle-grid">
-        <article><span>01</span><h3>Offline-first</h3><p>Les fonctions essentielles ne dépendent pas d’un cloud permanent.</p></article>
-        <article><span>02</span><h3>Données locales</h3><p>Le cœur de l’écosystème reste centré sur les données de l’utilisateur.</p></article>
-        <article><span>03</span><h3>Écosystème modulaire</h3><p>Chaque outil a un rôle précis au lieu d’entasser toutes les fonctions dans une seule application.</p></article>
+      <div class="values-line">
+        <article><b>LOCAL</b><p>Les fonctions essentielles restent utilisables sans connexion permanente.</p></article>
+        <article><b>MODULAIRE</b><p>Chaque application a un rôle clair au lieu d’empiler toutes les fonctions au même endroit.</p></article>
+        <article><b>EXPLICABLE</b><p>Les données, calculs et décisions restent lisibles et maîtrisables.</p></article>
       </div>
     </section>
 
-    <section id="tutoriels" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Tutoriels vidéo</p>
-        <h2>Comprendre Taikeron sans mode d’emploi de 200 pages.</h2>
-        <p>Les vidéos YouTube seront regardables directement depuis le site. Les emplacements sont prêts ; les lecteurs seront activés dès que les liens officiels seront disponibles.</p>
+    <section id="tutoriels" class="section tutorials-section">
+      <div class="section-title-row compact">
+        <div><span class="section-index">03</span><p class="eyebrow">Tutoriels</p></div>
+        <h2>Voir. Comprendre. Utiliser.</h2>
       </div>
-      <div class="tutorial-grid">
-        <article class="tutorial-card">
-          <div class="video-placeholder"><span>▶</span></div>
-          <div><p class="tutorial-type">Taikeron App</p><h3>Prendre en main Taikeron App</h3><p>Installation, première configuration et utilisation sur le vélo.</p></div>
+      <p class="section-intro">Les tutoriels YouTube seront intégrés directement ici. Aucun faux écran d’application : uniquement les vraies vidéos lorsqu’elles seront publiées.</p>
+      <div class="tutorial-list">
+        <article class="tutorial-row">
+          <div class="tutorial-number">01</div>
+          <div class="tutorial-play">▶</div>
+          <div><span>Taikeron App</span><h3>Prendre en main Taikeron App</h3></div>
+          <p>Installation, configuration et première sortie.</p>
         </article>
-        <article class="tutorial-card">
-          <div class="video-placeholder"><span>▶</span></div>
-          <div><p class="tutorial-type">Taikeron Lab</p><h3>Analyser une sortie dans Taikeron Lab</h3><p>Importer, lire et comprendre les informations d’une sortie.</p></div>
+        <article class="tutorial-row">
+          <div class="tutorial-number">02</div>
+          <div class="tutorial-play">▶</div>
+          <div><span>Taikeron Lab</span><h3>Analyser une sortie dans Taikeron Lab</h3></div>
+          <p>Import, lecture et analyse des données.</p>
         </article>
-        <article class="tutorial-card">
-          <div class="video-placeholder"><span>▶</span></div>
-          <div><p class="tutorial-type">Écosystème</p><h3>Transférer entre Taikeron App et Taikeron Lab</h3><p>Connexion locale, cartes, parcours et données utiles.</p></div>
+        <article class="tutorial-row">
+          <div class="tutorial-number">03</div>
+          <div class="tutorial-play">▶</div>
+          <div><span>Écosystème</span><h3>Transférer entre Taikeron App et Taikeron Lab</h3></div>
+          <p>Connexion locale, cartes et parcours.</p>
         </article>
       </div>
     </section>
 
     <section id="updates" class="section updates-section">
-      <div class="section-heading compact">
-        <p class="eyebrow">Mises à jour</p>
-        <h2>Des versions regroupées, pas une mise à jour pour trois pixels.</h2>
-        <p>Les modifications peuvent s’accumuler en développement. Une version publique n’est publiée que lorsqu’un ensemble cohérent de nouveautés et corrections le justifie.</p>
+      <div class="section-title-row compact">
+        <div><span class="section-index">04</span><p class="eyebrow">Mises à jour</p></div>
+        <h2>Publier quand ça mérite<br>une vraie version.</h2>
       </div>
-      <div class="updates-grid">
-        <article class="update-card">
-          <div><span class="status-dot"></span><span class="update-label">Taikeron Lab</span></div>
-          <h3>Prochaine version publique</h3>
-          <p>Notes de version et téléchargement seront affichés ici lorsqu’une release sera publiée.</p>
-        </article>
-        <article class="update-card">
-          <div><span class="status-dot"></span><span class="update-label">Taikeron App</span></div>
-          <h3>Prochaine version publique</h3>
-          <p>L’application pourra ensuite vérifier elle-même les nouvelles versions publiées.</p>
-        </article>
+      <div class="release-board">
+        <div class="release-head"><span>PRODUIT</span><span>STATUT</span><span>DERNIÈRE VERSION</span></div>
+        <div class="release-row"><strong>Taikeron Lab</strong><span class="release-status"><i></i> En préparation</span><span>Publication à venir</span></div>
+        <div class="release-row"><strong>Taikeron App</strong><span class="release-status"><i></i> En préparation</span><span>Publication à venir</span></div>
       </div>
+      <p class="release-note">Les petites modifications s’accumulent en développement. Une mise à jour publique n’est publiée que lorsqu’un ensemble cohérent de changements le justifie.</p>
     </section>
 
-    <section id="about" class="section contact-section">
-      <div>
+    <section id="about" class="section support-section">
+      <div class="support-line"></div>
+      <div class="support-copy">
         <p class="eyebrow">Support</p>
-        <h2>Un bug ? Une information utile suffit.</h2>
-        <p>Les rapports de bug peuvent être envoyés à l’adresse officielle Taikeron. Aucun envoi automatique de données sportives n’est requis.</p>
+        <h2>Quelque chose ne tourne pas rond ?</h2>
+        <p>Un rapport clair suffit. Aucun envoi automatique de données sportives n’est nécessaire.</p>
       </div>
       <a class="button button-primary" href="mailto:taikeron.cyclingos@gmail.com?subject=Rapport%20de%20bug%20Taikeron">Rapporter un bug</a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-brand">
-      <span class="brand-mark small" aria-hidden="true">T</span>
-      <div><strong>TAIKERON</strong><p>Cycling OS · offline-first</p></div>
+    <div class="footer-left">
+      <svg class="brand-symbol footer-symbol" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32L29 21v17H19V21L8 10Z"/><path d="M16 15h16l-8 8-8-8Z" class="brand-cut"/></svg>
+      <div><strong>TAIKERON</strong><span>CYCLING OS</span></div>
     </div>
-    <div class="footer-links">
-      <a href="mailto:taikeron.cyclingos@gmail.com">Contact</a>
-      <a href="#updates">Mises à jour</a>
-    </div>
+    <div class="footer-center"><a href="mailto:taikeron.cyclingos@gmail.com">Contact</a><a href="#updates">Mises à jour</a></div>
     <details class="developer-zone">
       <summary>Espace développeur</summary>
-      <div class="developer-panel">
-        <strong>Taikeron Map Builder</strong>
-        <span>Outil avancé / développeur</span>
-        <p>Création et contrôle de cartes Taikeron. Configuration externe et clés de services peuvent être nécessaires.</p>
-      </div>
+      <div class="developer-panel"><strong>Taikeron Map Builder</strong><span>OUTIL AVANCÉ / DÉVELOPPEUR</span><p>Création et contrôle de cartes Taikeron. Des comptes ou clés externes peuvent être nécessaires.</p></div>
     </details>
-    <p class="copyright">© <span id="year"></span> Taikeron-CyclingOS</p>
+    <div class="footer-year">© <span id="year"></span></div>
   </footer>
 
   <script src="script.js"></script>
