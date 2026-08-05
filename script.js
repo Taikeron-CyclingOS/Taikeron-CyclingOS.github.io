@@ -1,36 +1,36 @@
 (() => {
   const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia('(max-width: 760px)').matches;
 
-  const labCard = document.getElementById('labCard');
-  const appCard = document.getElementById('appCard');
-  const productGrid = document.getElementById('productGrid');
+  const lab = document.getElementById('lab');
+  const app = document.getElementById('app');
+  const stack = document.getElementById('productStack');
   const primary = document.getElementById('primaryDownload');
   const secondary = document.getElementById('secondaryDownload');
   const hint = document.getElementById('deviceHint');
 
   if (isMobile) {
-    appCard?.classList.add('is-priority');
-    if (productGrid && appCard) productGrid.prepend(appCard);
+    app?.classList.add('is-priority');
+    if (stack && app) stack.prepend(app);
     if (primary) {
       primary.textContent = 'Découvrir Taikeron App';
-      primary.href = '#appCard';
+      primary.href = '#app';
     }
     if (secondary) {
       secondary.textContent = 'Découvrir Taikeron Lab';
-      secondary.href = '#labCard';
+      secondary.href = '#lab';
     }
-    if (hint) hint.textContent = 'Appareil mobile détecté : Taikeron App est mise en avant.';
+    if (hint) hint.textContent = 'Mobile détecté · Taikeron App mise en avant';
   } else {
-    labCard?.classList.add('is-priority');
+    lab?.classList.add('is-priority');
     if (primary) {
       primary.textContent = 'Découvrir Taikeron Lab';
-      primary.href = '#labCard';
+      primary.href = '#lab';
     }
     if (secondary) {
       secondary.textContent = 'Découvrir Taikeron App';
-      secondary.href = '#appCard';
+      secondary.href = '#app';
     }
-    if (hint) hint.textContent = 'Ordinateur détecté : Taikeron Lab est mis en avant.';
+    if (hint) hint.textContent = 'Ordinateur détecté · Taikeron Lab mis en avant';
   }
 
   const year = document.getElementById('year');
