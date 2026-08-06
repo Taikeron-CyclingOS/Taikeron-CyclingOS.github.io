@@ -1,0 +1,60 @@
+name: Materialize hero images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/materialize-hero-images.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Decode hero images and wire direct files
+        shell: python
+        run: |
+          import base64
+          import pathlib
+          import re
+
+          pairs = [
+              ("hero-exact.b64.txt", "hero-desktop.webp"),
+              ("hero-mobile.b64.txt", "hero-mobile.webp"),
+          ]
+
+          for source, target in pairs:
+              encoded = "".join(pathlib.Path(source).read_text(encoding="utf-8").split())
+              raw = base64.b64decode(encoded, validate=True)
+              if raw[:4] != b"RIFF" or raw[8:12] != b"WEBP":
+                  raise RuntimeError(f"{source} is not a valid WebP payload")
+              pathlib.Path(target).write_bytes(raw)
+              print(f"{target}: {len(raw)} bytes")
+
+          index_path = pathlib.Path("index.html")
+          html = index_path.read_text(encoding="utf-8")
+          html = re.sub(
+              r'<img class="hero-img hero-img-desktop"[^>]*>',
+              '<img class="hero-img hero-img-desktop" src="hero-desktop.webp?v=real1" alt="Cycliste sur route de montagne avec métriques Taikeron">',
+              html,
+              count=1,
+          )
+          html = re.sub(
+              r'<img class="hero-img hero-img-mobile"[^>]*>',
+              '<img class="hero-img hero-img-mobile" src="hero-mobile.webp?v=real1" alt="Cycliste Taikeron et métriques, version mobile">',
+              html,
+              count=1,
+          )
+          index_path.write_text(html, encoding="utf-8")
+
+      - name: Commit real hero files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hero-desktop.webp hero-mobile.webp index.html
+          git commit -m "Serve hero artwork as real WebP files"
+          git push
