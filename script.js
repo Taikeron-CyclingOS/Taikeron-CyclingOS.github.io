@@ -14,6 +14,7 @@
     .product-card[data-product="mobile"] .app-icon{
       object-position:center center!important;
       align-self:center!important;
+      justify-self:center!important;
     }
   `;
   document.head.appendChild(fix);
@@ -27,11 +28,30 @@
     return 'image/jpeg';
   }
 
+  async function fetchText(file){
+    const r = await fetch(`${file}?v=brand-repair-20260807-2`, {cache:'no-store'});
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    return (await r.text()).trim();
+  }
+
   async function loadData(file){
     if(cache.has(file)) return cache.get(file);
-    const r = await fetch(`${file}?v=brand-wordmark-20260807-1`, {cache:'no-store'});
-    if(!r.ok) throw new Error(`HTTP ${r.status}`);
-    const b64 = (await r.text()).trim();
+
+    let b64;
+    if(file === 'logo-wordmark.b64.txt'){
+      const pieces = [
+        'logo-wordmark-prefix-1.b64.txt',
+        'logo-wordmark-prefix-2.b64.txt',
+        'logo-wordmark-prefix-3.b64.txt',
+        'logo-wordmark-prefix-4.b64.txt',
+        'logo-wordmark-prefix-5.b64.txt',
+        'logo-wordmark.b64.txt'
+      ];
+      b64 = (await Promise.all(pieces.map(fetchText))).join('');
+    } else {
+      b64 = await fetchText(file);
+    }
+
     const data = `data:${mimeFromBase64(b64)};base64,${b64}`;
     cache.set(file, data);
     return data;
