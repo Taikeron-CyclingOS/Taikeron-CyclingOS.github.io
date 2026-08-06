@@ -42,7 +42,7 @@
   document.head.appendChild(layoutFixes);
 
   const hydrateBase64Images = async () => {
-    const nodes=[...document.querySelectorAll('img[data-b64-file]')],cache=new Map(),version='20260806-hero4';
+    const nodes=[...document.querySelectorAll('img[data-b64-file]:not(.hero-img)')],cache=new Map(),version='20260806-hero5';
     await Promise.all(nodes.map(async img=>{
       const file=img.dataset.b64File;
       try{
