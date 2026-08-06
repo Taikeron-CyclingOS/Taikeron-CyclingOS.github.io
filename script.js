@@ -70,6 +70,23 @@
     }
     .ecosystem-point strong{display:block;color:#d8d9d6;font-size:.82rem;}
     .ecosystem-point span{display:block;margin-top:2px;color:#70787d;font-size:.72rem;line-height:1.42;}
+    .developer-download{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:38px;
+      margin-top:12px;
+      padding:0 14px;
+      border:1px solid rgba(212,168,76,.35);
+      border-radius:8px;
+      color:#e5c77d;
+      background:#0b0d0f;
+      text-decoration:none;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+    .developer-download:hover{border-color:#d4a84c;color:#f3d993;}
 
     @media (max-width:1100px){
       .hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) !important;align-items:stretch !important;}
@@ -131,7 +148,7 @@
   }
 
   const imageCache = new Map();
-  const imageVersion = '20260806-no-hero-1';
+  const imageVersion = '20260806-release-downloads-1';
 
   async function loadBase64Image(img, file){
     if(!img || !file) return;
@@ -197,31 +214,53 @@
     timer=setTimeout(()=>toast.classList.remove('show'),3600);
   }
 
+  // Les versions normales utilisent exclusivement les trois dépôts publics Downloads.
+  // TAD / TLD / TMBD ne sont jamais recherchés ici : ils restent sur le circuit DEV privé.
   const releaseConfig={
-    desktop:{manifest:'releases/tl/stable.json',platform:'windows-x64',name:'Taikeron Lab'},
-    mobile:{manifest:'releases/ta/stable.json',platform:'android-universal',name:'Taikeron App'}
+    desktop:{repo:'Taikeron-CyclingOS/Taikeron-Lab-Downloads',extensions:['.exe'],name:'Taikeron Lab'},
+    mobile:{repo:'Taikeron-CyclingOS/Taikeron-App-Downloads',extensions:['.apk'],name:'Taikeron App'},
+    tmb:{repo:'Taikeron-CyclingOS/Taikeron-Map-Builder-Downloads',extensions:['.exe'],name:'Taikeron Map Builder'}
   };
-  const releases={desktop:null,mobile:null};
+  const releases={desktop:null,mobile:null,tmb:null};
 
   async function loadRelease(kind){
     const config=releaseConfig[kind];
+    if(!config) return null;
     try{
-      const response=await fetch(`${config.manifest}?v=${Date.now()}`,{cache:'no-store',headers:{Accept:'application/json'}});
+      const response=await fetch(`https://api.github.com/repos/${config.repo}/releases/latest`,{
+        cache:'no-store',
+        headers:{Accept:'application/vnd.github+json'}
+      });
       if(!response.ok) throw new Error(`HTTP ${response.status}`);
-      const manifest=await response.json();
-      if(manifest?.format!=='taikeron_release_manifest'||manifest?.available!==true) return null;
-      const platform=manifest?.platforms?.[config.platform];
-      if(!platform?.url||!/^https:\/\//i.test(platform.url)||!/^[0-9a-f]{64}$/i.test(String(platform.sha256||''))) return null;
+      const release=await response.json();
+      if(release?.draft||release?.prerelease) return null;
+      const assets=Array.isArray(release?.assets)?release.assets:[];
+      const asset=assets.find(item=>{
+        const name=String(item?.name||'').toLowerCase();
+        return config.extensions.some(ext=>name.endsWith(ext));
+      });
+      if(!asset?.browser_download_url) return null;
       return{
-        url:String(platform.url),
-        version:String(manifest.version||''),
-        sha256:String(platform.sha256||''),
-        bytes:Number(platform.bytes||0)
+        url:String(asset.browser_download_url),
+        version:String(release.tag_name||release.name||'').replace(/^v/i,''),
+        bytes:Number(asset.size||0),
+        assetName:String(asset.name||'')
       };
     }catch(error){
       console.warn(`Release ${kind} indisponible`,error);
       return null;
     }
+  }
+
+  const developerInfo=document.querySelector('.developer-body > div');
+  let tmbDownload=document.getElementById('tmbDownload');
+  if(developerInfo&&!tmbDownload){
+    tmbDownload=document.createElement('a');
+    tmbDownload.id='tmbDownload';
+    tmbDownload.className='developer-download';
+    tmbDownload.href='#';
+    tmbDownload.textContent='↓ Télécharger TMB';
+    developerInfo.appendChild(tmbDownload);
   }
 
   function applyDownloadTargets(){
@@ -231,6 +270,7 @@
       button.dataset.downloadUrl=release?.url||'';
       if(release?.version) button.title=`Télécharger ${releaseConfig[kind].name} ${release.version}`;
     });
+
     for(const anchor of [primary,secondary]){
       if(!anchor) continue;
       const kind=anchor.dataset.product||'';
@@ -238,11 +278,21 @@
       anchor.href=release?.url||`#${kind==='mobile'?'app':'lab'}`;
       if(release?.version) anchor.title=`Télécharger ${releaseConfig[kind].name} ${release.version}`;
     }
+
+    if(tmbDownload){
+      const release=releases.tmb;
+      tmbDownload.href=release?.url||'#';
+      if(release?.version){
+        tmbDownload.textContent=`↓ Télécharger TMB ${release.version}`;
+        tmbDownload.title=`Télécharger Taikeron Map Builder ${release.version}`;
+      }
+    }
   }
 
-  Promise.all([loadRelease('desktop'),loadRelease('mobile')]).then(([desktopRelease,mobileRelease])=>{
+  Promise.all([loadRelease('desktop'),loadRelease('mobile'),loadRelease('tmb')]).then(([desktopRelease,mobileRelease,tmbRelease])=>{
     releases.desktop=desktopRelease;
     releases.mobile=mobileRelease;
+    releases.tmb=tmbRelease;
     applyDownloadTargets();
   });
 
@@ -261,5 +311,11 @@
     event.preventDefault();
     document.querySelector(kind==='mobile'?'#app':'#lab')?.scrollIntoView({behavior:'smooth',block:'center'});
     showToast(`${releaseConfig[kind]?.name||'Taikeron'} : aucune release publique n’est encore disponible.`);
+  });
+
+  tmbDownload?.addEventListener('click',event=>{
+    if(releases.tmb?.url) return;
+    event.preventDefault();
+    showToast('Taikeron Map Builder : aucune release publique n’est encore disponible.');
   });
 })();
