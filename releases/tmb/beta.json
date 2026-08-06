@@ -1,0 +1,11 @@
+{
+  "format": "taikeron_release_manifest",
+  "schemaVersion": "1.0.0",
+  "product": "TMB",
+  "channel": "beta",
+  "available": false,
+  "version": "0.5.8",
+  "publishedAt": "",
+  "notes": "Canal bêta TMB prêt. Aucune build publique bêta n’est encore publiée.",
+  "platforms": {}
+}
