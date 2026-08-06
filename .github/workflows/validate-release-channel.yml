@@ -1,0 +1,54 @@
+name: Validate public release channel
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - script.js
+      - releases/**
+      - .github/workflows/validate-release-channel.yml
+  push:
+    branches: [main]
+    paths:
+      - script.js
+      - releases/**
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check website JavaScript syntax
+        run: node --check script.js
+      - name: Validate release manifests
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const targets=[
+            ['releases/tl/stable.json','TL','stable'],
+            ['releases/tl/beta.json','TL','beta'],
+            ['releases/ta/stable.json','TA','stable'],
+            ['releases/ta/beta.json','TA','beta']
+          ];
+          for(const [file,product,channel] of targets){
+            const value=JSON.parse(fs.readFileSync(file,'utf8'));
+            if(value.format!=='taikeron_release_manifest')throw new Error(`${file}: format invalide`);
+            if(value.product!==product)throw new Error(`${file}: produit invalide`);
+            if(value.channel!==channel)throw new Error(`${file}: canal invalide`);
+            if(typeof value.available!=='boolean')throw new Error(`${file}: available doit être booléen`);
+            if(value.available){
+              const key=product==='TL'?'windows-x64':'android-universal';
+              const platform=value.platforms?.[key];
+              if(!platform)throw new Error(`${file}: plateforme ${key} absente`);
+              if(!/^https:\/\//.test(String(platform.url||'')))throw new Error(`${file}: URL non HTTPS`);
+              if(!/^[0-9a-f]{64}$/i.test(String(platform.sha256||'')))throw new Error(`${file}: SHA-256 invalide`);
+              if(!(Number(platform.bytes)>0))throw new Error(`${file}: taille invalide`);
+            }
+          }
+          NODE
