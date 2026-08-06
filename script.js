@@ -11,30 +11,53 @@
     @media (max-width:1100px){
       .hero-copy,.hero-visual,.ecosystem-summary{transform:none!important}
     }
+    .brand-logo{width:46px!important;height:46px!important;max-height:46px!important;object-fit:cover!important;border-radius:11px!important}
+    .footer-brand{display:flex!important;align-items:center!important;gap:12px!important}
+    .footer-brand .taikeron-global-footer-logo{width:52px!important;height:52px!important;object-fit:cover!important;border-radius:12px!important;display:block!important}
+    .developer-body>img{width:72px!important;height:72px!important;object-fit:cover!important;border-radius:16px!important;display:block!important}
+    @media(max-width:760px){.brand-logo{width:38px!important;height:38px!important;max-height:38px!important}}
   `;
   document.head.appendChild(fix);
 
   const cache = new Map();
-  async function hydrate(img){
-    const file=img.dataset.b64File;
-    if(!file) return;
-    try{
-      if(!cache.has(file)){
-        const r=await fetch(`${file}?v=20260807-clean-hero-1`,{cache:'no-store'});
-        if(!r.ok) throw new Error(`HTTP ${r.status}`);
-        cache.set(file,`data:image/webp;base64,${(await r.text()).trim()}`);
-      }
-      img.src=cache.get(file);
-    }catch(e){console.warn('Image Taikeron indisponible',file,e);}
+  const mimeFromBase64 = (b64) => b64.startsWith('/9j/') ? 'image/jpeg' : b64.startsWith('iVBOR') ? 'image/png' : 'image/webp';
+
+  async function loadData(file){
+    if(cache.has(file)) return cache.get(file);
+    const r = await fetch(`${file}?v=logos-user-exact-20260807-1`, {cache:'no-store'});
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    const b64 = (await r.text()).trim();
+    const data = `data:${mimeFromBase64(b64)};base64,${b64}`;
+    cache.set(file, data);
+    return data;
   }
+
+  async function hydrate(img){
+    const file = img.dataset.b64File;
+    if(!file) return;
+    try{ img.src = await loadData(file); }
+    catch(e){ console.warn('Image Taikeron indisponible', file, e); }
+  }
+
   document.querySelectorAll('img[data-b64-file]').forEach(hydrate);
 
-  const tmb=document.querySelector('.developer-body > img[alt="Logo Taikeron Map Builder"]');
-  if(tmb){
-    tmb.src='data:image/jpeg;base64,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';
-    tmb.removeAttribute('data-b64-file');
-  }
+  (async () => {
+    try{
+      const globalLogo = await loadData('logo-global-taikeron.b64.txt');
+      const header = document.querySelector('.brand-logo');
+      if(header) header.src = globalLogo;
 
-  const year=document.getElementById('year');
-  if(year) year.textContent=new Date().getFullYear();
+      const footer = document.querySelector('.footer-brand');
+      if(footer){
+        footer.innerHTML = `<img class="taikeron-global-footer-logo" src="${globalLogo}" alt="Taikeron"><div><strong>TAIKERON</strong><small>Conçu pour le cyclisme, pensé hors ligne.</small></div>`;
+      }
+
+      const tmbLogo = await loadData('logo-tmb.b64.txt');
+      const tmb = document.querySelector('.developer-body > img[alt="Logo Taikeron Map Builder"]');
+      if(tmb) tmb.src = tmbLogo;
+    }catch(e){ console.warn('Logos Taikeron indisponibles', e); }
+  })();
+
+  const year = document.getElementById('year');
+  if(year) year.textContent = new Date().getFullYear();
 })();
