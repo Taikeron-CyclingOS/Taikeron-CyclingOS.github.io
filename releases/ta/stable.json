@@ -1,0 +1,11 @@
+{
+  "format": "taikeron_release_manifest",
+  "schemaVersion": "1.0.0",
+  "product": "TA",
+  "channel": "stable",
+  "available": false,
+  "version": "2.101.8",
+  "publishedAt": "",
+  "notes": "Le canal est prêt. Le premier APK signé publié par le pipeline TA activera ce manifeste.",
+  "platforms": {}
+}
