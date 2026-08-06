@@ -6,13 +6,18 @@
   <meta name="description" content="Taikeron — écosystème vélo offline-first pour Windows et Android.">
   <meta name="theme-color" content="#060708">
   <title>Taikeron — Cycling OS</title>
-  <link rel="stylesheet" href="styles.css?v=hero-image-fix-1">
+  <link rel="stylesheet" href="styles.css?v=direct-downloads-20260807-1">
   <style>
     .brand{display:flex;align-items:center;min-width:0;letter-spacing:0!important}
     .brand-logo{display:block;width:190px;height:auto;max-height:48px;object-fit:contain;object-position:left center}
+    .static-download{min-height:48px;border-radius:6px;padding:0 22px;border:1px solid #343a3e;display:inline-flex;align-items:center;justify-content:center;font-weight:750;cursor:pointer;background:#0d1012;color:#e3e4e2;min-width:178px}
+    .static-download.gold{background:linear-gradient(#e0b657,#c99638);border-color:#e2bd69;color:#121314}
+    .static-download:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .developer-static-download{display:inline-flex;align-items:center;justify-content:center;min-height:38px;margin-top:12px;padding:0 14px;border:1px solid rgba(212,168,76,.35);border-radius:8px;color:#e5c77d;background:#0b0d0f;text-decoration:none;font-size:.72rem;font-weight:800;letter-spacing:.04em}
     @media(max-width:760px){
       .brand{padding-top:0!important;flex:0 0 auto}
       .brand-logo{width:145px;max-height:36px}
+      .static-download{grid-column:2;justify-self:start;min-width:0;min-height:42px;padding:0 16px;font-size:.77rem}
     }
   </style>
 </head>
@@ -39,10 +44,10 @@
       <p>Taikeron réunit <strong>Taikeron App</strong> et <strong>Taikeron Lab</strong> pour enregistrer, préparer, analyser et progresser.</p>
       <p>Conçu pour continuer à fonctionner localement, même quand Internet ne suit pas.</p>
       <div class="hero-actions">
-        <a id="primaryDownload" class="btn btn-gold" href="#lab">↓ Télécharger TL</a>
-        <a id="secondaryDownload" class="btn btn-dark" href="#app">↓ Télécharger TA</a>
+        <a class="btn btn-gold" href="https://github.com/Taikeron-CyclingOS/Taikeron-App-Downloads/releases/latest/download/Taikeron-App-2.101.8.apk">↓ Télécharger TA</a>
+        <a class="btn btn-dark" href="https://github.com/Taikeron-CyclingOS/Taikeron-Lab-Downloads/releases/latest/download/Taikeron-Lab-2.301.7.0-Setup-x64.exe">↓ Télécharger TL</a>
       </div>
-      <p id="deviceHint" class="device-hint">Ordinateur détecté : Taikeron Lab est prioritaire.</p>
+      <p class="device-hint">Téléchargements publics directs.</p>
     </div>
 
     <div class="hero-visual" aria-label="Présentation de l’écosystème Taikeron"></div>
@@ -56,63 +61,34 @@
         <h3>Taikeron Lab</h3>
         <p>Analysez vos sorties en détail, planifiez vos itinéraires, suivez votre progression et pilotez l’écosystème depuis votre ordinateur.</p>
       </div>
-      <button class="download-button" data-name="Taikeron Lab">↓ Télécharger TL</button>
+      <a class="static-download" href="https://github.com/Taikeron-CyclingOS/Taikeron-Lab-Downloads/releases/latest/download/Taikeron-Lab-2.301.7.0-Setup-x64.exe">↓ Télécharger TL</a>
     </article>
 
-    <article id="app" class="product-card" data-product="mobile">
+    <article id="app" class="product-card priority" data-product="mobile">
       <img class="app-icon" data-b64-file="logo-ta.b64.txt" alt="Logo Taikeron App">
       <div class="product-copy">
         <span class="platform">Application mobile Android</span>
         <h3>Taikeron App</h3>
         <p>Enregistrez vos sorties, suivez votre séance, explorez vos parcours et gardez l’essentiel disponible même sans connexion.</p>
       </div>
-      <button class="download-button gold" data-name="Taikeron App">↓ Télécharger TA</button>
+      <a class="static-download gold" href="https://github.com/Taikeron-CyclingOS/Taikeron-App-Downloads/releases/latest/download/Taikeron-App-2.101.8.apk">↓ Télécharger TA</a>
     </article>
   </section>
 
   <section class="lower-grid">
     <div id="tutorials" class="panel tutorials">
-      <div class="panel-head">
-        <h2>▣ Tutoriels vidéo</h2>
-        <span>Les vidéos YouTube seront intégrées ici</span>
-      </div>
+      <div class="panel-head"><h2>▣ Tutoriels vidéo</h2><span>Les vidéos YouTube seront intégrées ici</span></div>
       <div class="tutorial-grid">
-        <article class="tutorial">
-          <div class="cover cover-ta">
-            <img data-b64-file="logo-ta.b64.txt" alt="">
-            <span class="play">▶</span>
-          </div>
-          <h3>Prendre en main Taikeron App</h3>
-        </article>
-        <article class="tutorial">
-          <div class="cover cover-chart">
-            <svg viewBox="0 0 300 100" aria-hidden="true"><polyline points="0,70 45,65 75,42 105,61 145,30 185,49 230,24 300,56"/></svg>
-            <span class="play">▶</span>
-          </div>
-          <h3>Analyser une sortie dans Taikeron Lab</h3>
-        </article>
-        <article class="tutorial">
-          <div class="cover cover-transfer">
-            <img data-b64-file="logo-ta.b64.txt" alt="">
-            <span class="transfer-arrow">→</span>
-            <img data-b64-file="logo-tl.b64.txt" alt="">
-            <span class="play">▶</span>
-          </div>
-          <h3>Transférer entre Taikeron App et Taikeron Lab</h3>
-        </article>
+        <article class="tutorial"><div class="cover cover-ta"><img data-b64-file="logo-ta.b64.txt" alt=""><span class="play">▶</span></div><h3>Prendre en main Taikeron App</h3></article>
+        <article class="tutorial"><div class="cover cover-chart"><svg viewBox="0 0 300 100" aria-hidden="true"><polyline points="0,70 45,65 75,42 105,61 145,30 185,49 230,24 300,56"/></svg><span class="play">▶</span></div><h3>Analyser une sortie dans Taikeron Lab</h3></article>
+        <article class="tutorial"><div class="cover cover-transfer"><img data-b64-file="logo-ta.b64.txt" alt=""><span class="transfer-arrow">→</span><img data-b64-file="logo-tl.b64.txt" alt=""><span class="play">▶</span></div><h3>Transférer entre Taikeron App et Taikeron Lab</h3></article>
       </div>
     </div>
 
     <aside id="updates" class="panel updates">
       <div class="panel-head"><h2>◌ Dernières mises à jour</h2></div>
-      <div class="release">
-        <div class="release-code">TL</div>
-        <div><strong>Taikeron Lab</strong><span>EN PRÉPARATION</span><p>La prochaine fiche de version apparaîtra ici lors d’une vraie publication.</p></div>
-      </div>
-      <div class="release">
-        <div class="release-code gold">TA</div>
-        <div><strong>Taikeron App</strong><span>EN PRÉPARATION</span><p>Les changements seront regroupés jusqu’à une mise à jour suffisamment importante.</p></div>
-      </div>
+      <div class="release"><div class="release-code">TL</div><div><strong>Taikeron Lab</strong><span>PUBLIC</span><p>Version publique disponible au téléchargement.</p></div></div>
+      <div class="release"><div class="release-code gold">TA</div><div><strong>Taikeron App</strong><span>PUBLIC</span><p>Version publique disponible au téléchargement.</p></div></div>
     </aside>
   </section>
 
@@ -122,7 +98,7 @@
     <div class="trust-item"><b>▣</b><span>Offline-first<br><strong>par conception</strong></span></div>
     <div class="trust-item"><b>⊞</b><span>Optimisé pour<br><strong>Windows et Android</strong></span></div>
 
-    <details class="developer">
+    <details class="developer" open>
       <summary>&lt;/&gt; Espace développeur</summary>
       <div class="developer-body">
         <img data-b64-file="logo-tmb.b64.txt" alt="Logo Taikeron Map Builder">
@@ -130,18 +106,14 @@
           <strong>Taikeron Map Builder</strong>
           <span>OUTIL AVANCÉ / DÉVELOPPEUR</span>
           <p>Création et préparation de cartes Taikeron.</p>
+          <a class="developer-static-download" href="https://github.com/Taikeron-CyclingOS/Taikeron-Map-Builder-Downloads/releases/latest/download/Taikeron_Map_Builder_0.5.8_Setup.exe">↓ Télécharger TMB</a>
         </div>
       </div>
     </details>
   </section>
 </main>
 
-<footer class="legal">
-  <span>© <span id="year"></span> Taikeron</span>
-  <a href="mailto:taikeron.cyclingos@gmail.com">Rapporter un bug</a>
-</footer>
-
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="script.js?v=release-download-fix-20260807-1"></script>
+<footer class="legal"><span>© <span id="year">2026</span> Taikeron</span><a href="mailto:taikeron.cyclingos@gmail.com">Rapporter un bug</a></footer>
+<script src="script.js?v=direct-downloads-20260807-1"></script>
 </body>
 </html>
