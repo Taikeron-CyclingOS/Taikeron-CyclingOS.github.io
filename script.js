@@ -16,86 +16,122 @@
 
     .hero-visual{
       position:relative !important;
-      isolation:isolate !important;
-    }
-    .hero-visual .hero-img{
-      position:relative !important;
-      z-index:0 !important;
-    }
-    .hero-visual::after{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      z-index:3;
-      pointer-events:none;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      min-width:0 !important;
+      padding:34px clamp(24px,4vw,56px) !important;
       background:
-        linear-gradient(90deg,
-          #07090a 0%,
-          rgba(7,9,10,.68) 5%,
-          rgba(7,9,10,.20) 13%,
-          transparent 24%,
-          transparent 78%,
-          rgba(7,9,10,.18) 90%,
-          #07090a 100%),
-        linear-gradient(180deg,
-          rgba(7,9,10,.72) 0%,
-          rgba(7,9,10,.10) 10%,
-          transparent 22%,
-          transparent 80%,
-          rgba(7,9,10,.18) 91%,
-          #07090a 100%);
+        radial-gradient(circle at 72% 28%,rgba(212,168,76,.08),transparent 32%),
+        linear-gradient(145deg,#0b0e10,#07090a) !important;
+      border-left:1px solid rgba(255,255,255,.055) !important;
+      overflow:hidden !important;
     }
-
-    .hero-img-desktop{display:block !important;}
-    .hero-img-mobile{display:none !important;}
+    .hero-visual::before,.hero-visual::after{display:none !important;}
+    .ecosystem-summary{width:min(100%,560px);}
+    .ecosystem-eyebrow{
+      margin:0 0 12px;
+      color:#d4a84c;
+      font-size:.68rem;
+      font-weight:800;
+      letter-spacing:.19em;
+    }
+    .ecosystem-summary h3{
+      margin:0 0 12px;
+      color:#f0eee8;
+      font-size:clamp(1.3rem,2.1vw,2rem);
+      line-height:1.1;
+      font-weight:700;
+    }
+    .ecosystem-summary>p{
+      margin:0 0 22px;
+      max-width:510px;
+      color:#8f979b;
+      font-size:.88rem;
+      line-height:1.55;
+    }
+    .ecosystem-points{display:grid;gap:10px;}
+    .ecosystem-point{
+      display:grid;
+      grid-template-columns:8px 1fr;
+      gap:11px;
+      align-items:start;
+      padding:10px 0;
+      border-top:1px solid rgba(255,255,255,.055);
+    }
+    .ecosystem-point:first-child{border-top:0;}
+    .ecosystem-dot{
+      width:6px;
+      height:6px;
+      margin-top:7px;
+      border-radius:50%;
+      background:#d4a84c;
+      box-shadow:0 0 14px rgba(212,168,76,.35);
+    }
+    .ecosystem-point strong{display:block;color:#d8d9d6;font-size:.82rem;}
+    .ecosystem-point span{display:block;margin-top:2px;color:#70787d;font-size:.72rem;line-height:1.42;}
 
     @media (max-width:1100px){
       .hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) !important;align-items:stretch !important;}
       .hero-copy{padding:30px 20px 28px !important;}
-      .hero-visual{border-top:0 !important;border-left:1px solid rgba(255,255,255,.05) !important;min-width:0 !important;}
-      .hero-img-desktop{display:block !important;width:100% !important;height:100% !important;min-height:365px !important;object-fit:cover !important;object-position:center center !important;}
+      .hero-visual{padding:28px 24px !important;}
     }
 
     @media (max-width:760px){
-      .hero{grid-template-columns:minmax(0,1.18fr) minmax(145px,.82fr) !important;min-height:470px !important;}
-      .hero-copy{padding:20px 10px 18px 12px !important;min-width:0 !important;}
-      .hero h1{font-size:clamp(2rem,9vw,2.85rem) !important;letter-spacing:.035em !important;}
-      .hero h2{margin:13px 0 10px !important;font-size:.96rem !important;line-height:1.2 !important;}
-      .hero p{font-size:.73rem !important;line-height:1.38 !important;}
+      .hero{grid-template-columns:1fr !important;min-height:0 !important;}
+      .hero-copy{padding:24px 14px 20px !important;min-width:0 !important;}
+      .hero h1{font-size:clamp(2.55rem,14vw,4rem) !important;letter-spacing:.045em !important;}
+      .hero h2{margin:13px 0 10px !important;font-size:1.02rem !important;line-height:1.2 !important;}
+      .hero p{font-size:.82rem !important;line-height:1.45 !important;}
       .kicker{font-size:.58rem !important;letter-spacing:.15em !important;}
-      .hero-actions{margin-top:15px !important;gap:7px !important;}
-      .hero-actions .btn{min-height:38px !important;padding:0 10px !important;font-size:.66rem !important;}
-      .device-hint{font-size:.58rem !important;}
-      .hero-visual{display:flex !important;align-items:stretch !important;justify-content:stretch !important;overflow:hidden !important;background:#07090a !important;min-height:470px !important;}
-      .hero-visual:before{background:linear-gradient(90deg,rgba(7,9,10,.25),transparent 25%) !important;}
-      .hero-visual::after{
-        background:
-          linear-gradient(90deg,
-            #07090a 0%,
-            rgba(7,9,10,.72) 6%,
-            rgba(7,9,10,.18) 17%,
-            transparent 30%,
-            transparent 72%,
-            rgba(7,9,10,.20) 88%,
-            #07090a 100%),
-          linear-gradient(180deg,
-            rgba(7,9,10,.64) 0%,
-            rgba(7,9,10,.08) 9%,
-            transparent 20%,
-            transparent 82%,
-            rgba(7,9,10,.22) 93%,
-            #07090a 100%);
+      .hero-actions{margin-top:16px !important;gap:7px !important;}
+      .hero-actions .btn{min-height:40px !important;padding:0 11px !important;font-size:.7rem !important;}
+      .device-hint{font-size:.6rem !important;}
+      .hero-visual{
+        border-left:0 !important;
+        border-top:1px solid rgba(255,255,255,.055) !important;
+        padding:22px 15px 24px !important;
+        justify-content:flex-start !important;
       }
-      .hero-img-desktop{display:none !important;}
-      .hero-img-mobile{display:block !important;width:100% !important;height:100% !important;min-height:470px !important;object-fit:cover !important;object-position:center top !important;}
+      .ecosystem-summary{width:100%;}
+      .ecosystem-summary h3{font-size:1.28rem;}
+      .ecosystem-summary>p{font-size:.79rem;margin-bottom:14px;}
+      .ecosystem-point{padding:8px 0;}
+      .ecosystem-point strong{font-size:.78rem;}
+      .ecosystem-point span{font-size:.68rem;}
       .product-card{grid-template-columns:88px minmax(0,1fr) !important;}
       .app-icon{width:76px !important;height:76px !important;padding:4px !important;margin:auto !important;}
     }
   `;
   document.head.appendChild(layoutFixes);
 
+  const heroVisual=document.querySelector('.hero-visual');
+  if(heroVisual){
+    heroVisual.setAttribute('aria-label','Présentation de l’écosystème Taikeron');
+    heroVisual.innerHTML=`
+      <div class="ecosystem-summary">
+        <p class="ecosystem-eyebrow">UN ÉCOSYSTÈME · DEUX OUTILS</p>
+        <h3>Du vélo à l’analyse, sans dépendre du cloud.</h3>
+        <p>Taikeron relie le terrain et l’ordinateur dans un environnement pensé pour rester utile hors connexion.</p>
+        <div class="ecosystem-points">
+          <div class="ecosystem-point">
+            <span class="ecosystem-dot"></span>
+            <div><strong>Taikeron App</strong><span>Enregistrement, suivi de séance, navigation et données essentielles sur Android.</span></div>
+          </div>
+          <div class="ecosystem-point">
+            <span class="ecosystem-dot"></span>
+            <div><strong>Taikeron Lab</strong><span>Analyse détaillée, planification et suivi de progression sur Windows.</span></div>
+          </div>
+          <div class="ecosystem-point">
+            <span class="ecosystem-dot"></span>
+            <div><strong>Offline-first</strong><span>Les fonctions principales et les données restent locales par conception.</span></div>
+          </div>
+        </div>
+      </div>`;
+  }
+
   const imageCache = new Map();
-  const imageVersion = '20260806-portrait-hero-1';
+  const imageVersion = '20260806-no-hero-1';
 
   async function loadBase64Image(img, file){
     if(!img || !file) return;
@@ -113,11 +149,6 @@
       console.error('Taikeron image asset load failed',file,err);
     }
   }
-
-  const heroDesktop=document.querySelector('.hero-img-desktop');
-  const heroMobile=document.querySelector('.hero-img-mobile');
-  loadBase64Image(heroDesktop,'hero-exact.b64.txt');
-  loadBase64Image(heroMobile,'hero-mobile.b64.txt');
 
   const hydrateBase64Images = async () => {
     const nodes=[...document.querySelectorAll('img[data-b64-file]:not(.hero-img)')];
