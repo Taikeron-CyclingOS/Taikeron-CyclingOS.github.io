@@ -1,0 +1,11 @@
+{
+  "format": "taikeron_release_manifest",
+  "schemaVersion": "1.0.0",
+  "product": "TMB",
+  "channel": "stable",
+  "available": false,
+  "version": "0.5.8",
+  "publishedAt": "",
+  "notes": "Canal TMB prêt. La première publication publique activera ce manifeste.",
+  "platforms": {}
+}
