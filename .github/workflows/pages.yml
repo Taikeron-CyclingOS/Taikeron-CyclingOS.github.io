@@ -29,6 +29,22 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Materialize exact Taikeron branding images
+        shell: bash
+        run: |
+          tr -d '\r\n ' < logo-global-taikeron.b64.txt | base64 --decode > taikeron-global.jpg
+          cat \
+            logo-wordmark-prefix-1.b64.txt \
+            logo-wordmark-prefix-2.b64.txt \
+            logo-wordmark-prefix-3.b64.txt \
+            logo-wordmark-prefix-4.b64.txt \
+            logo-wordmark-prefix-5.b64.txt \
+            logo-wordmark.b64.txt \
+            | tr -d '\r\n ' \
+            | base64 --decode > taikeron-wordmark.jpg
+          test -s taikeron-global.jpg
+          test -s taikeron-wordmark.jpg
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
