@@ -12,41 +12,22 @@
       .hero-copy,.hero-visual,.ecosystem-summary{transform:none!important}
     }
 
-    /* Image 2 exacte : elle remplace tout le bloc de marque haut + bas. */
-    .brand-logo,.footer-global-logo{display:none!important}
-    .brand{gap:0!important}
-    .brand-wordmark{
-      display:block!important;
-      width:220px!important;
-      height:auto!important;
-      max-height:46px!important;
-      object-fit:contain!important;
-      object-position:left center!important;
-      flex:0 0 auto!important;
-    }
-    .footer-brand{gap:0!important}
-    .footer-wordmark{
-      display:block!important;
-      width:230px!important;
-      height:auto!important;
-      max-height:56px!important;
-      object-fit:contain!important;
-      object-position:left center!important;
-      flex:0 0 auto!important;
-    }
+    /* Marque : logo général à gauche + image 2 exacte à droite. */
+    .brand,.footer-brand{display:flex!important;align-items:center!important;gap:10px!important}
+    .brand-logo{display:block!important;width:42px!important;height:42px!important;max-height:42px!important;object-fit:cover!important;object-position:center!important;border-radius:10px!important;flex:0 0 auto!important}
+    .footer-global-logo{display:block!important;width:48px!important;height:48px!important;max-height:48px!important;object-fit:cover!important;object-position:center!important;border-radius:11px!important;flex:0 0 auto!important}
+    .brand-wordmark{display:block!important;width:220px!important;height:auto!important;max-height:46px!important;object-fit:contain!important;object-position:left center!important;flex:0 0 auto!important;background:transparent!important}
+    .footer-wordmark{display:block!important;width:230px!important;height:auto!important;max-height:56px!important;object-fit:contain!important;object-position:left center!important;flex:0 0 auto!important;background:transparent!important}
 
-    /* TA : centrage réel dans sa colonne, horizontal + vertical. */
-    #app>.app-icon,
-    .product-card[data-product="mobile"]>.app-icon{
-      object-position:center center!important;
-      object-fit:contain!important;
-      align-self:center!important;
-      justify-self:center!important;
-      margin:auto!important;
-      transform:none!important;
+    /* TA : centrage réel dans sa colonne. */
+    #app>.app-icon,.product-card[data-product="mobile"]>.app-icon{
+      object-position:center center!important;object-fit:contain!important;align-self:center!important;justify-self:center!important;margin:auto!important;transform:none!important
     }
 
     @media (max-width:760px){
+      .brand,.footer-brand{gap:7px!important}
+      .brand-logo{width:34px!important;height:34px!important;max-height:34px!important;border-radius:8px!important}
+      .footer-global-logo{width:40px!important;height:40px!important;max-height:40px!important}
       .brand-wordmark{width:172px!important;max-height:40px!important}
       .footer-wordmark{width:180px!important;max-height:46px!important}
     }
@@ -54,6 +35,7 @@
   document.head.appendChild(fix);
 
   const cache = new Map();
+  const CACHE_TAG = 'brand-exact-20260807-3';
 
   function mimeFromBase64(b64){
     if(b64.startsWith('/9j/')) return 'image/jpeg';
@@ -62,29 +44,38 @@
     return 'image/jpeg';
   }
 
+  async function fetchText(file){
+    const r = await fetch(`${file}?v=${CACHE_TAG}`, {cache:'no-store'});
+    if(!r.ok) throw new Error(`HTTP ${r.status}`);
+    return (await r.text()).trim();
+  }
+
   async function loadData(file){
     if(cache.has(file)) return cache.get(file);
-    const r = await fetch(`${file}?v=main-direct-20260807-2`, {cache:'no-store'});
-    if(!r.ok) throw new Error(`HTTP ${r.status}`);
-    const b64 = (await r.text()).trim();
+    const b64 = await fetchText(file);
     const data = `data:${mimeFromBase64(b64)};base64,${b64}`;
     cache.set(file, data);
+    return data;
+  }
+
+  async function loadExactWordmark(){
+    if(cache.has('exact-wordmark')) return cache.get('exact-wordmark');
+    const files = [
+      'wordmark-exact-01.b64.txt','wordmark-exact-02.b64.txt','wordmark-exact-03.b64.txt','wordmark-exact-04.b64.txt',
+      'wordmark-exact-05.b64.txt','wordmark-exact-06.b64.txt','wordmark-exact-07.b64.txt','wordmark-exact-08.b64.txt'
+    ];
+    const b64 = (await Promise.all(files.map(fetchText))).join('');
+    if(!b64.startsWith('/9j/')) throw new Error('Wordmark JPEG invalide');
+    const data = `data:image/jpeg;base64,${b64}`;
+    cache.set('exact-wordmark', data);
     return data;
   }
 
   async function hydrate(img){
     const file = img.dataset.b64File;
     if(!file) return;
-
-    if(file === 'logo-wordmark.b64.txt'){
-      img.src = 'taikeron-wordmark.jpg?v=exact-upload-20260807-1';
-      return;
-    }
-
-    if(file === 'logo-global-taikeron.b64.txt') return;
-
     try{
-      img.src = await loadData(file);
+      img.src = file === 'logo-wordmark.b64.txt' ? await loadExactWordmark() : await loadData(file);
     }catch(e){
       console.warn('Image Taikeron indisponible', file, e);
     }
@@ -97,9 +88,7 @@
       const tmbLogo = await loadData('logo-tmb.b64.txt');
       const tmb = document.querySelector('.developer-body > img[alt="Logo Taikeron Map Builder"]');
       if(tmb) tmb.src = tmbLogo;
-    }catch(e){
-      console.warn('Logo TMB indisponible', e);
-    }
+    }catch(e){ console.warn('Logo TMB indisponible', e); }
   })();
 
   const year = document.getElementById('year');
