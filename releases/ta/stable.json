@@ -3,9 +3,22 @@
   "schemaVersion": "1.0.0",
   "product": "TA",
   "channel": "stable",
-  "available": false,
-  "version": "2.101.8",
-  "publishedAt": "",
-  "notes": "Le canal est prêt. Le premier APK signé publié par le pipeline TA activera ce manifeste.",
-  "platforms": {}
+  "available": true,
+  "version": "2.101.13",
+  "publishedAt": "2026-08-14T21:04:47.450Z",
+  "notes": "Taikeron App 2.101.13",
+  "platforms": {
+    "android-universal": {
+      "fileName": "Taikeron_App_2.101.13.apk",
+      "url": "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/ta-2.101.13/Taikeron_App_2.101.13.apk",
+      "sha256": "2729542a84b88383354b6b3fa5936674d72ec6fb0b2881acba0a716b341b1067",
+      "bytes": 9718555
+    },
+    "android-apk": {
+      "fileName": "Taikeron_App_2.101.13.apk",
+      "url": "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/ta-2.101.13/Taikeron_App_2.101.13.apk",
+      "sha256": "2729542a84b88383354b6b3fa5936674d72ec6fb0b2881acba0a716b341b1067",
+      "bytes": 9718555
+    }
+  }
 }
