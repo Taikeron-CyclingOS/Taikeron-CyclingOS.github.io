@@ -3,9 +3,22 @@
   "schemaVersion": "1.0.0",
   "product": "TMB",
   "channel": "stable",
-  "available": false,
-  "version": "0.5.8",
-  "publishedAt": "",
-  "notes": "Canal TMB prêt. La première publication publique activera ce manifeste.",
-  "platforms": {}
+  "available": true,
+  "version": "0.5.13",
+  "publishedAt": "2026-08-14T21:25:13.2801327Z",
+  "notes": "Taikeron Map Builder 0.5.13",
+  "platforms": {
+    "windows-x64-portable": {
+      "fileName": "Taikeron_Map_Builder_0.5.13_Portable.exe",
+      "url": "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tmb-0.5.13/Taikeron_Map_Builder_0.5.13_Portable.exe",
+      "sha256": "4113af15a740d5a86424789d65b834a5a64e0dbf12e44f43e33b1cc4de230ac3",
+      "bytes": 89990592
+    },
+    "windows-x64-nsis": {
+      "fileName": "Taikeron_Map_Builder_0.5.13_Setup.exe",
+      "url": "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tmb-0.5.13/Taikeron_Map_Builder_0.5.13_Setup.exe",
+      "sha256": "67bb892ef0c7bcbe08976843b0e5d28b8a85be9883252f444f2dbc9735723501",
+      "bytes": 99162621
+    }
+  }
 }
