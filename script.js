@@ -72,6 +72,60 @@
     }catch(e){ console.warn('Logo TMB indisponible', e); }
   })();
 
+  const releaseTargets = [
+    {
+      product: 'TA',
+      manifest: 'releases/ta/stable.json',
+      platformKeys: ['android-universal', 'android-apk'],
+      selectors: ['.hero-actions .btn.btn-gold', '.product-card[data-product="mobile"] .static-download']
+    },
+    {
+      product: 'TL',
+      manifest: 'releases/tl/stable.json',
+      platformKeys: ['windows-x64'],
+      selectors: ['.hero-actions .btn.btn-dark', '.product-card[data-product="desktop"] .static-download']
+    },
+    {
+      product: 'TMB',
+      manifest: 'releases/tmb/stable.json',
+      platformKeys: ['windows-x64-nsis', 'windows-x64-portable'],
+      selectors: ['#tmbDownload']
+    }
+  ];
+
+  function resolveReleaseUrl(manifest, platformKeys){
+    if(!manifest || manifest.available !== true || !manifest.platforms) return '';
+    for(const key of platformKeys){
+      const url = manifest.platforms?.[key]?.url;
+      if(typeof url === 'string' && /^https:\/\//i.test(url)) return url;
+    }
+    return '';
+  }
+
+  async function applyStableRelease(target){
+    try{
+      const separator = target.manifest.includes('?') ? '&' : '?';
+      const response = await fetch(`${target.manifest}${separator}v=${Date.now()}`, {cache:'no-store'});
+      if(!response.ok) throw new Error(`HTTP ${response.status}`);
+      const manifest = await response.json();
+      if(manifest.product !== target.product || manifest.channel !== 'stable') return;
+      const url = resolveReleaseUrl(manifest, target.platformKeys);
+      if(!url) return;
+
+      for(const selector of target.selectors){
+        document.querySelectorAll(selector).forEach(link => {
+          link.href = url;
+          link.dataset.downloadUrl = url;
+          if(manifest.version) link.title = `${target.product} ${manifest.version}`;
+        });
+      }
+    }catch(error){
+      console.warn(`Manifeste stable ${target.product} indisponible`, error);
+    }
+  }
+
+  Promise.allSettled(releaseTargets.map(applyStableRelease));
+
   const year = document.getElementById('year');
   if(year) year.textContent = new Date().getFullYear();
 })();
