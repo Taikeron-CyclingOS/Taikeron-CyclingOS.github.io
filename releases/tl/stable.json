@@ -3,9 +3,16 @@
   "schemaVersion": "1.0.0",
   "product": "TL",
   "channel": "stable",
-  "available": false,
-  "version": "2.301.7.0",
-  "publishedAt": "",
-  "notes": "Le canal est prêt. Le premier installateur publié par le pipeline TL activera ce manifeste.",
-  "platforms": {}
+  "available": true,
+  "version": "2.301.7.4",
+  "publishedAt": "2026-08-14T21:19:22.1507846Z",
+  "notes": "Taikeron Lab 2.301.7.4",
+  "platforms": {
+    "windows-x64": {
+      "fileName": "Taikeron-Lab-2.301.7.4-Setup-x64.exe",
+      "url": "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-2.301.7.4/Taikeron-Lab-2.301.7.4-Setup-x64.exe",
+      "sha256": "649b6b64d92497b785c6296babfef9c6492419d5be2d32345500110f632cbf14",
+      "bytes": 117623597
+    }
+  }
 }
