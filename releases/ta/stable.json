@@ -1,28 +1,29 @@
-﻿{
+{
     "format":  "taikeron_release_manifest",
-    "schemaVersion":  "2.0.0",
+    "schemaVersion":  "2.1.0",
     "product":  "TA",
     "channel":  "stable",
     "available":  true,
-    "version":  "3.102.9.1",
-    "sourceRepository":  "servicesathe-eng/Taikeron-Dev",
-    "sourceCommit":  "be966c7b11ef1ef2bf95a7158c2ff95c64042a74",
-    "builtAt":  "2026-09-13T13:30:28.4685888Z",
-    "publishedAt":  "2026-09-13T13:30:28.4685888Z",
-    "notes":  "Taikeron App 3.102.9.1",
+    "version":  "3.102.9.2",
+    "sourceRepository":  "servicesathe-eng/Taikeron-App",
+    "sourceRepositoryCanonical":  "servicesathe-eng/Taikeron-Dev",
+    "sourceCommit":  "d70971562d92cc863bc8d89efd81618dfa6dfc8f",
+    "builtAt":  "2026-09-14T12:45:15.3059453Z",
+    "publishedAt":  "2026-09-14T12:45:15.3059453Z",
+    "notes":  "Taikeron App 3.102.9.2",
     "platforms":  {
                       "android-universal":  {
-                                                "fileName":  "Taikeron_App_3.102.9.1.apk",
-                                                "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/ta-3.102.9.1/Taikeron_App_3.102.9.1.apk",
+                                                "fileName":  "Taikeron_App_3.102.9.2.apk",
+                                                "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/ta-3.102.9.2/Taikeron_App_3.102.9.2.apk",
                                                 "bytes":  8006766,
-                                                "sha256":  "ccf263dfc19681a9b3692882cb2efda95beeb2ac3fb9e5a6085970fee4db2b64",
+                                                "sha256":  "755d84727a4248c34fd9762ef2b37fd823b9bbca94a753a829147ea89a3e9818",
                                                 "signingCertificateSha256":  "8fac8f588d1c817661946c4e067689a28e78bc45faf19395904aedcd3b0f22d1"
                                             },
                       "android-apk":  {
-                                          "fileName":  "Taikeron_App_3.102.9.1.apk",
-                                          "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/ta-3.102.9.1/Taikeron_App_3.102.9.1.apk",
+                                          "fileName":  "Taikeron_App_3.102.9.2.apk",
+                                          "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/ta-3.102.9.2/Taikeron_App_3.102.9.2.apk",
                                           "bytes":  8006766,
-                                          "sha256":  "ccf263dfc19681a9b3692882cb2efda95beeb2ac3fb9e5a6085970fee4db2b64",
+                                          "sha256":  "755d84727a4248c34fd9762ef2b37fd823b9bbca94a753a829147ea89a3e9818",
                                           "signingCertificateSha256":  "8fac8f588d1c817661946c4e067689a28e78bc45faf19395904aedcd3b0f22d1"
                                       }
                   }
