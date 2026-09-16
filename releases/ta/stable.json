@@ -7,9 +7,9 @@
     "version":  "3.102.9.6",
     "sourceRepository":  "servicesathe-eng/Taikeron-App",
     "sourceRepositoryCanonical":  "servicesathe-eng/Taikeron-Dev",
-    "sourceCommit":  "cbaffc6a337b767e7fe9e447d110e771c04fdbdf",
-    "builtAt":  "2026-09-14T15:43:34.3453637Z",
-    "publishedAt":  "2026-09-14T15:43:34.3453637Z",
+    "sourceCommit":  "91992c9a53a6a22d1bfe000a121d8df046728f3b",
+    "builtAt":  "2026-09-16T17:04:04.0372543Z",
+    "publishedAt":  "2026-09-16T17:04:04.0372543Z",
     "notes":  "Taikeron App 3.102.9.6",
     "platforms":  {
                       "android-universal":  {
