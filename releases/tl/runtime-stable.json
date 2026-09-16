@@ -1,0 +1,21 @@
+{
+  "format": "taikeron_release_manifest",
+  "schemaVersion": "1.1.0",
+  "product": "TL",
+  "channel": "stable",
+  "available": true,
+  "version": "2.302.3.1",
+  "publishedAt": "2026-09-16T07:20:39.053Z",
+  "notes": "Taikeron Lab 2.302.3.1 · runtime WDST",
+  "source": "WDST",
+  "sourceSha": "c64bf23000089cdde61f3e6f657801a1d55a4b90",
+  "platforms": {
+    "windows-x64": {
+      "kind": "asar-runtime",
+      "fileName": "Taikeron-Lab-2.302.3.1-app.asar",
+      "url": "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-runtime-2.302.3.1/Taikeron-Lab-2.302.3.1-app.asar",
+      "sha256": "3b3c72b9576dae48cf11696a81615721c51ee3f06c7eaf5bb3e0adfdbcd00365",
+      "bytes": 32651692
+    }
+  }
+}
