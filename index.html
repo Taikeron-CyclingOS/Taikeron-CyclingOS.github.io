@@ -14,6 +14,8 @@
     .static-download{min-height:48px;border-radius:6px;padding:0 22px;border:1px solid #343a3e;display:inline-flex;align-items:center;justify-content:center;font-weight:750;cursor:pointer;background:#0d1012;color:#e3e4e2;min-width:178px}
     .static-download.gold{background:linear-gradient(#e0b657,#c99638);border-color:#e2bd69;color:#121314}
     .static-download:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .static-download.disabled{opacity:.58;cursor:default;pointer-events:none;border-style:dashed}
+    .static-download.disabled:hover{filter:none;transform:none}
     .developer-static-download{display:inline-flex;align-items:center;justify-content:center;min-height:38px;margin-top:12px;padding:0 14px;border:1px solid rgba(212,168,76,.35);border-radius:8px;color:#e5c77d;background:#0b0d0f;text-decoration:none;font-size:.72rem;font-weight:800;letter-spacing:.04em}
 
     .hero{grid-template-columns:minmax(560px,.92fr) minmax(0,1.08fr)!important;column-gap:clamp(44px,5vw,82px)!important}
@@ -87,9 +89,9 @@
       <p>Conçu pour continuer à fonctionner localement, même quand Internet ne suit pas.</p>
       <div class="hero-actions">
         <a class="btn btn-gold" href="https://github.com/Taikeron-CyclingOS/Taikeron-App-Downloads/releases/latest/download/Taikeron-App-2.101.8.apk">↓ Télécharger TA</a>
-        <a class="btn btn-dark" href="https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-2.302.6.0/Taikeron-Lab-2.302.6.0-Setup-x64.exe">↓ Télécharger TL</a>
+        <span class="btn btn-dark" aria-disabled="true">Taikeron Launcher · bientôt disponible</span>
       </div>
-      <p class="device-hint">Téléchargements publics directs.</p>
+      <p class="device-hint">Sur Windows, Taikeron Launcher installera et vérifiera les applications Taikeron.</p>
     </div>
 
     <div class="hero-visual" aria-label="Présentation de l’écosystème Taikeron">
@@ -107,14 +109,14 @@
   </section>
 
   <section id="products" class="products-grid">
-    <article id="lab" class="product-card" data-product="desktop">
-      <img class="app-icon" data-b64-file="logo-tl.b64.txt" alt="Logo Taikeron Lab">
+    <article id="launcher" class="product-card" data-product="desktop">
+      <img class="app-icon" data-b64-file="logo-tl.b64.txt" alt="Logo Taikeron Launcher">
       <div class="product-copy">
-        <span class="platform">Logiciel bureau Windows</span>
-        <h3>Taikeron Lab</h3>
-        <p>Analysez vos sorties en détail, planifiez vos itinéraires, suivez votre progression et pilotez l’écosystème depuis votre ordinateur.</p>
+        <span class="platform">Point d’entrée Windows</span>
+        <h3>Taikeron Launcher</h3>
+        <p>Installez, vérifiez, réparez et mettez à jour Taikeron Lab et les outils Windows depuis une seule application, sans toucher au Data Vault.</p>
       </div>
-      <a class="static-download" href="https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-2.302.6.0/Taikeron-Lab-2.302.6.0-Setup-x64.exe">↓ Télécharger TL</a>
+      <span class="static-download disabled" aria-disabled="true">Launcher bientôt disponible</span>
     </article>
 
     <article id="app" class="product-card priority" data-product="mobile">
@@ -140,7 +142,7 @@
 
     <aside id="updates" class="panel updates">
       <div class="panel-head"><h2>◌ Dernières mises à jour</h2></div>
-      <div class="release"><div class="release-code">TL</div><div><strong>Taikeron Lab</strong><span>PUBLIC</span><p>Version publique disponible au téléchargement.</p></div></div>
+      <div class="release"><div class="release-code">WIN</div><div><strong>Taikeron Launcher</strong><span>EN PRÉPARATION</span><p>Le Launcher deviendra le téléchargement Windows public et installera Taikeron Lab.</p></div></div>
       <div class="release"><div class="release-code gold">TA</div><div><strong>Taikeron App</strong><span>PUBLIC</span><p>Version publique disponible au téléchargement.</p></div></div>
     </aside>
   </section>
