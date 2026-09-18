@@ -4,17 +4,17 @@
     "product":  "TL",
     "channel":  "stable",
     "available":  true,
-    "version":  "2.302.6.5",
-    "publishedAt":  "2026-09-18T14:04:03.5973375Z",
-    "notes":  "Taikeron Lab 2.302.6.5",
+    "version":  "2.302.6.6",
+    "publishedAt":  "2026-09-18T14:36:40.7237915Z",
+    "notes":  "Taikeron Lab 2.302.6.6",
     "distribution":  "launcher-managed",
     "directWebsiteDownload":  false,
     "platforms":  {
                       "windows-x64":  {
-                                          "fileName":  "Taikeron-Lab-2.302.6.5-Setup-x64.exe",
-                                          "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-2.302.6.5/Taikeron-Lab-2.302.6.5-Setup-x64.exe",
-                                          "sha256":  "7d6c56a20489c68dd7b5dd46dbaf992b1b9e61ef7f29906bb2acc12b4838394d",
-                                          "bytes":  118783360
+                                          "fileName":  "Taikeron-Lab-2.302.6.6-Setup-x64.exe",
+                                          "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-2.302.6.6/Taikeron-Lab-2.302.6.6-Setup-x64.exe",
+                                          "sha256":  "5e3de4adafdf200d5834f302cb5baee82b362e01c9d621b9763b808ef4778801",
+                                          "bytes":  118783576
                                       }
                   }
 }
