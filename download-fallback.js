@@ -3,12 +3,12 @@
 
   const latestPages = {
     mobile: 'https://github.com/Taikeron-CyclingOS/Taikeron-App-Downloads/releases/latest',
-    desktop: 'https://github.com/Taikeron-CyclingOS/Taikeron-Lab-Downloads/releases/latest',
+    desktop: 'https://github.com/servicesathe-eng/Taikeron-Launcher/releases/latest',
     tmb: 'https://github.com/Taikeron-CyclingOS/Taikeron-Map-Builder-Downloads/releases/latest'
   };
 
   function isDirectGithubDownload(value){
-    return /^https:\/\/github\.com\/Taikeron-CyclingOS\/.+\/releases\/download\//i.test(String(value || ''));
+    return /^https:\/\/github\.com\/(?:Taikeron-CyclingOS|servicesathe-eng)\/.+\/releases\/download\//i.test(String(value || ''));
   }
 
   document.addEventListener('click', event => {
