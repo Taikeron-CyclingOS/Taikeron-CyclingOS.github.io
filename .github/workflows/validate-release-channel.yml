@@ -39,7 +39,7 @@ jobs:
             ['releases/tmb/beta.json','TMB','beta']
           ];
           for(const [file,product,channel] of targets){
-            const value=JSON.parse(fs.readFileSync(file,'utf8'));
+            const value=JSON.parse(fs.readFileSync(file,'utf8').replace(/^\uFEFF/,''));
             if(value.format!=='taikeron_release_manifest')throw new Error(`${file}: format invalide`);
             if(value.product!==product)throw new Error(`${file}: produit invalide`);
             if(value.channel!==channel)throw new Error(`${file}: canal invalide`);
