@@ -80,12 +80,6 @@
       selectors: ['.hero-actions .btn.btn-gold', '.product-card[data-product="mobile"] .static-download']
     },
     {
-      product: 'TL',
-      manifest: 'releases/tl/stable.json',
-      platformKeys: ['windows-x64'],
-      selectors: ['.hero-actions .btn.btn-dark', '.product-card[data-product="desktop"] .static-download']
-    },
-    {
       product: 'TMB',
       manifest: 'releases/tmb/stable.json',
       platformKeys: ['windows-x64-nsis', 'windows-x64-portable'],
