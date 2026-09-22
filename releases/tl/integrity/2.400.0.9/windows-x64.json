@@ -5,8 +5,8 @@
     "channel":  "stable",
     "version":  "2.400.0.9",
     "platform":  "windows-x64",
-    "publishedAt":  "2026-09-21T17:00:01.2655146Z",
-    "packageSha256":  "5bc0d30675766a7920386ae90bc3f620a076b62403894c46fba70640c1462be9",
+    "publishedAt":  "2026-09-22T15:52:49.9985321Z",
+    "packageSha256":  "5032d59c60c6628219c84b02693b201ab711d693f807d0d9377d595599703bb7",
     "fileCount":  21,
     "totalBytes":  318488642,
     "files":  [
@@ -83,7 +83,7 @@
                   {
                       "path":  "resources/elevate.exe",
                       "bytes":  122120,
-                      "sha256":  "20974b9e315df15e5a0783e172552d78eb018e0b8bb47a8cd4dc27acb04e4e66"
+                      "sha256":  "61b4ae0309291b4ebe2ab972b0ed555c05803dd35e806d8baa7684382b019b44"
                   },
                   {
                       "path":  "snapshot_blob.bin",
@@ -93,7 +93,7 @@
                   {
                       "path":  "Taikeron.exe",
                       "bytes":  225500424,
-                      "sha256":  "45781ef74d4945885714877142b5ce5130e512c1293e8490e2d624909771029c"
+                      "sha256":  "0b688564506b794a8bae7ab35fdb03849ce00df373ad4bdc0545e9483369ca0a"
                   },
                   {
                       "path":  "v8_context_snapshot.bin",
