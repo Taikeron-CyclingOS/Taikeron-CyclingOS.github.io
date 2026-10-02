@@ -4,17 +4,17 @@
     "product":  "TL",
     "channel":  "stable",
     "available":  true,
-    "version":  "2.404.1.8",
-    "publishedAt":  "2026-10-02T13:54:03.1402101Z",
-    "notes":  "Taikeron 2.404.1.8",
+    "version":  "2.404.1.9",
+    "publishedAt":  "2026-10-02T14:45:57.6330373Z",
+    "notes":  "Taikeron 2.404.1.9",
     "distribution":  "launcher-managed",
     "directWebsiteDownload":  false,
     "platforms":  {
                       "windows-x64":  {
-                                          "fileName":  "Taikeron-2.404.1.8-Setup-x64.exe",
-                                          "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-2.404.1.8/Taikeron-2.404.1.8-Setup-x64.exe",
-                                          "sha256":  "d67c6562e6f24727e1c02aeecf8e3b3e981d5075b176458c4af958a03833c6f5",
-                                          "bytes":  91807352
+                                          "fileName":  "Taikeron-2.404.1.9-Setup-x64.exe",
+                                          "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tl-2.404.1.9/Taikeron-2.404.1.9-Setup-x64.exe",
+                                          "sha256":  "689c4bef10286b4e6f7221fe7ac5a5c5297e5fa883be745c6c37b5b23a238462",
+                                          "bytes":  91807488
                                       }
                   }
 }
