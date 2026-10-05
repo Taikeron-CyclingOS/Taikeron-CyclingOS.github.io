@@ -4,26 +4,26 @@
     "product":  "TMB",
     "channel":  "stable",
     "available":  true,
-    "version":  "0.5.15",
-    "publishedAt":  "2026-10-04T14:08:33.6469139Z",
-    "notes":  "Taikeron Map Builder 0.5.15",
+    "version":  "0.5.16",
+    "publishedAt":  "2026-10-05T19:02:58.1694607Z",
+    "notes":  "Taikeron Map Builder 0.5.16",
     "source":  {
                    "repository":  "servicesathe-eng/Taikeron-Ecosystem",
                    "subtree":  "TMB",
-                   "commit":  "5022aa3ce32d234d6bd83cb868afcc4309c37495"
+                   "commit":  "5e6296a71fb5fe8992b2de26dceb704d1ef76c77"
                },
     "platforms":  {
                       "windows-x64-portable":  {
-                                                   "fileName":  "Taikeron_Map_Builder_0.5.15_Portable.exe",
-                                                   "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tmb-0.5.15/Taikeron_Map_Builder_0.5.15_Portable.exe",
-                                                   "sha256":  "99178d6c42a5d2ac8a1997e7ea9a7f5b8eab5da09ba140df8fb2894cf3a0e253",
-                                                   "bytes":  89656000
+                                                   "fileName":  "Taikeron_Map_Builder_0.5.16_Portable.exe",
+                                                   "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tmb-0.5.16/Taikeron_Map_Builder_0.5.16_Portable.exe",
+                                                   "sha256":  "97c72a8c945fec7aad422590165a18b7e682472e2e03decfae98e54db4c33465",
+                                                   "bytes":  89665536
                                                },
                       "windows-x64-nsis":  {
-                                               "fileName":  "Taikeron_Map_Builder_0.5.15_Setup.exe",
-                                               "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tmb-0.5.15/Taikeron_Map_Builder_0.5.15_Setup.exe",
-                                               "sha256":  "7cdd8eb5507a5a73cd08904184eb8e1cc6c9cb43d6823212a29f5174c3e6f7d4",
-                                               "bytes":  99634840
+                                               "fileName":  "Taikeron_Map_Builder_0.5.16_Setup.exe",
+                                               "url":  "https://github.com/Taikeron-CyclingOS/Taikeron-CyclingOS.github.io/releases/download/tmb-0.5.16/Taikeron_Map_Builder_0.5.16_Setup.exe",
+                                               "sha256":  "4f03eb3b013df2cfb2862a769d43e11d0bc4a16ffb02a95d05bd051042c10cbc",
+                                               "bytes":  99637072
                                            }
                   }
 }
