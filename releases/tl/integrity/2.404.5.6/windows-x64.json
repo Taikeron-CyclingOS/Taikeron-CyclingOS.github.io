@@ -1,0 +1,119 @@
+{
+    "format":  "taikeron_integrity_manifest",
+    "schemaVersion":  "1.0.0",
+    "product":  "TL",
+    "channel":  "stable",
+    "version":  "2.404.5.6",
+    "platform":  "windows-x64",
+    "publishedAt":  "2026-10-16T19:00:33.0508881Z",
+    "packageSha256":  "abb2c613ae0b72fcbfbfd351d81dc893079823bd90eff6982adc7efac096918b",
+    "fileCount":  21,
+    "totalBytes":  319162441,
+    "files":  [
+                  {
+                      "path":  "chrome_100_percent.pak",
+                      "bytes":  119905,
+                      "sha256":  "d76fe8fa3a14cd73e4c858746e2ab2d2fa6f2df38a906fa5814b50a8a895fc96"
+                  },
+                  {
+                      "path":  "chrome_200_percent.pak",
+                      "bytes":  197089,
+                      "sha256":  "b74ad439f3d3762657f3ba533a6af3ac63315c838ed46519891366f43d834a0e"
+                  },
+                  {
+                      "path":  "d3dcompiler_47.dll",
+                      "bytes":  4741488,
+                      "sha256":  "a05f99734f7c4822fefc12b367af21fd0976ed6608752fb1e1e80b6ece7ecbbb"
+                  },
+                  {
+                      "path":  "dxcompiler.dll",
+                      "bytes":  25616896,
+                      "sha256":  "a26f279fb9e49fef94d60710a8371f5f9cbeac73d92d6ad072a664c9c4442213"
+                  },
+                  {
+                      "path":  "dxil.dll",
+                      "bytes":  1509760,
+                      "sha256":  "77e039c905030a641e53658a008b74e90635a5ea9b6b79eabd0f2003bdfca59a"
+                  },
+                  {
+                      "path":  "ffmpeg.dll",
+                      "bytes":  3067904,
+                      "sha256":  "eaeb2203f72d89615ffbf6a38bb96860cc78a9095126b790e36fc91c8f1fef3d"
+                  },
+                  {
+                      "path":  "icudtl.dat",
+                      "bytes":  10876560,
+                      "sha256":  "bd8c145abdf3f8383276ce01dfa4ae48709bef9fef1c0711eb7c3fab4f6eb7c2"
+                  },
+                  {
+                      "path":  "libEGL.dll",
+                      "bytes":  474624,
+                      "sha256":  "0c2960b094a77dba406e1401c6dcdc35245f218c7b910062d51cfac0f4898830"
+                  },
+                  {
+                      "path":  "libGLESv2.dll",
+                      "bytes":  8023552,
+                      "sha256":  "d254bf59b7e56730e56f58061ba83f0e75c0b393c4879a64560cc867d1f8e7f3"
+                  },
+                  {
+                      "path":  "LICENSE.electron.txt",
+                      "bytes":  1096,
+                      "sha256":  "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d"
+                  },
+                  {
+                      "path":  "LICENSES.chromium.html",
+                      "bytes":  20313957,
+                      "sha256":  "b911161e6594ec76b872498b423c54406168f2974e0d407a847f7de1e5ff94dd"
+                  },
+                  {
+                      "path":  "locales/en-US.pak",
+                      "bytes":  566040,
+                      "sha256":  "489c50f77896a0512f2bd173d4d8e9b5e7ef1d61f37acb75194e3e6ad8b8a83d"
+                  },
+                  {
+                      "path":  "resources.pak",
+                      "bytes":  7148150,
+                      "sha256":  "a6db258ba22e9a9d440a6aac5c4189d26d337b0a3cfa948fdfc082869740b2b9"
+                  },
+                  {
+                      "path":  "resources/app.asar",
+                      "bytes":  3344466,
+                      "sha256":  "d1b2a05ed15be8ef79d12fa5834c6297745d5e7d86afea466d03382912920cd4"
+                  },
+                  {
+                      "path":  "resources/elevate.exe",
+                      "bytes":  122120,
+                      "sha256":  "c1dc33a4693d7c631a150637caff33c3d76288dd295ec901629243dae053b178"
+                  },
+                  {
+                      "path":  "snapshot_blob.bin",
+                      "bytes":  365488,
+                      "sha256":  "4bfe54996b0a08dbc37d298f21a3b45034b0b9a3fb75498442887bba2c96037e"
+                  },
+                  {
+                      "path":  "Taikeron.exe",
+                      "bytes":  225500424,
+                      "sha256":  "8de8f08d203e7fc5c88e9773c864b279055b62f22b0a1df9dc2f49c2afe94edf"
+                  },
+                  {
+                      "path":  "v8_context_snapshot.bin",
+                      "bytes":  740048,
+                      "sha256":  "43fc0784f72a4b1f15909553c88a297539a2bc5e86e162211499c908b7f96abb"
+                  },
+                  {
+                      "path":  "vk_swiftshader.dll",
+                      "bytes":  5502464,
+                      "sha256":  "0fc94c88bf7cedaf866da5c959a1c52fd1b8ddb2d72185bd8fa2843fe9112e7c"
+                  },
+                  {
+                      "path":  "vk_swiftshader_icd.json",
+                      "bytes":  106,
+                      "sha256":  "32d83ff113fef532a9f97e0d2831f8656628ab1c99e9060f0332b1532839afd9"
+                  },
+                  {
+                      "path":  "vulkan-1.dll",
+                      "bytes":  930304,
+                      "sha256":  "1843299ee154fc50d6d11ff5918742852d70467385e10b7a1019ea3358f3085a"
+                  }
+              ]
+}
