@@ -3,12 +3,12 @@
     "schemaVersion":  "1.0.0",
     "product":  "TL",
     "channel":  "stable",
-    "version":  "2.404.5.6",
+    "version":  "2.404.5.8",
     "platform":  "windows-x64",
-    "publishedAt":  "2026-10-16T19:00:33.0508881Z",
-    "packageSha256":  "abb2c613ae0b72fcbfbfd351d81dc893079823bd90eff6982adc7efac096918b",
+    "publishedAt":  "2026-11-12T13:21:30.6354544Z",
+    "packageSha256":  "ab55957776cd507bac5c33e106bf54f4a83e5ab6af67e2cb4e12ef7618c70851",
     "fileCount":  21,
-    "totalBytes":  319162441,
+    "totalBytes":  319260008,
     "files":  [
                   {
                       "path":  "chrome_100_percent.pak",
@@ -77,13 +77,13 @@
                   },
                   {
                       "path":  "resources/app.asar",
-                      "bytes":  3344466,
-                      "sha256":  "d1b2a05ed15be8ef79d12fa5834c6297745d5e7d86afea466d03382912920cd4"
+                      "bytes":  3442033,
+                      "sha256":  "e44470a5376a48a08b7433ee8a70a682cc72fd91a1d20d6cd091416fc1bfcbb3"
                   },
                   {
                       "path":  "resources/elevate.exe",
                       "bytes":  122120,
-                      "sha256":  "c1dc33a4693d7c631a150637caff33c3d76288dd295ec901629243dae053b178"
+                      "sha256":  "51d67b84f32b998d2c838849475f142038dd3ff078fe9483a728a5ad9e4ed35e"
                   },
                   {
                       "path":  "snapshot_blob.bin",
@@ -93,7 +93,7 @@
                   {
                       "path":  "Taikeron.exe",
                       "bytes":  225500424,
-                      "sha256":  "8de8f08d203e7fc5c88e9773c864b279055b62f22b0a1df9dc2f49c2afe94edf"
+                      "sha256":  "443c2b072de53cdbb5d25a6168b5abc72c3f58c87688c7d1c6709e7ef752d510"
                   },
                   {
                       "path":  "v8_context_snapshot.bin",
