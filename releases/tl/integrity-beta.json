@@ -3,14 +3,14 @@
     "schemaVersion":  "1.0.0",
     "product":  "TL",
     "channel":  "beta",
-    "version":  "2.410.0.2",
+    "version":  "2.410.0.4",
     "platform":  "windows-x64",
-    "publishedAt":  "2026-11-25T15:12:31.6600511Z",
+    "publishedAt":  "2026-11-26T12:02:32.9392417Z",
     "sourceRepository":  "servicesathe-eng/Taikeron-Ecosystem",
-    "sourceCommit":  "cb7e91d142d3da6efc35a36db232297ba81291cb",
-    "packageSha256":  "0363c8c3b71136d6f53d2cf51d22365f9f01e63eb7c3f40ba2c644e3804cdbbe",
+    "sourceCommit":  "33188d8008b5bff8038e0a6405c3e54762421f9d",
+    "packageSha256":  "22af679d6c5c9d6b22b76dbb1c2fd3ba9bf6b40893b92ba5efd8053643a64926",
     "fileCount":  23,
-    "totalBytes":  322846429,
+    "totalBytes":  322848389,
     "files":  [
                   {
                       "path":  "chrome_100_percent.pak",
@@ -79,8 +79,8 @@
                   },
                   {
                       "path":  "resources/app.asar",
-                      "bytes":  7027073,
-                      "sha256":  "5c3892de5990aaaa7d8a1b8ba966b48887ba43067183e956029ab00edae9831a"
+                      "bytes":  7029033,
+                      "sha256":  "3a2ef5e0d16ca7136f458905e92bd554b886240c2882fcf62fe407084bdb3668"
                   },
                   {
                       "path":  "resources/app.asar.unpacked/electron/pist/personal-cpu-integrity-worker.js",
@@ -90,7 +90,7 @@
                   {
                       "path":  "resources/elevate.exe",
                       "bytes":  122120,
-                      "sha256":  "091da5e4a1f416b793e5a0f896902c8be4edf58a5fe1b9c894aff2e1331d1c22"
+                      "sha256":  "8be4e32de8bbd99dc0c21abcd16ab8be8cf6cbe18b3ca9e14c678b175db8c42c"
                   },
                   {
                       "path":  "resources/personal-training-runtime/NOT_INSTALLED.txt",
@@ -105,7 +105,7 @@
                   {
                       "path":  "Taikeron.exe",
                       "bytes":  225500424,
-                      "sha256":  "cda33928ccb2c8e256149ed02a3d5c03e6659a6482e0e79d9b9b0fafe2df6da9"
+                      "sha256":  "c4c0e0d247f64ffbcc11a4d8f643ae3931f4eeacc6be082ff4409046db0e82cc"
                   },
                   {
                       "path":  "v8_context_snapshot.bin",
